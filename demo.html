@@ -252,7 +252,7 @@
         let updateParticles = function (editor) {
             let presetId = localStorage.presetId || 'default';
 
-            tsParticles.loadJSON('tsparticles', `/demo/presets/${presetId}.json`).then((particles) => {
+            tsParticles.loadJSON('tsparticles', `_data/presets/${presetId}.json`).then((particles) => {
                 localStorage.presetId = presetId;
                 editor.set(particles.options);
                 editor.expandAll();
