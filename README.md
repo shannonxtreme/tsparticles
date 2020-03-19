@@ -10,9 +10,7 @@
 
 *[Particles.js](https://github.com/VincentGarreau/particles.js) converted in TypeScript, improved with new cool features and various bugs fixed and **it's currently under development**!*
 
-[![tsParticles demo](https://media.giphy.com/media/fsVN1ZHksgBIXNIbr1/giphy.gif)](https://particles.matteobruni.it/#virus)
-
-*Checkout demos [here](/demo.html)* 
+[![tsParticles demo](https://media.giphy.com/media/fsVN1ZHksgBIXNIbr1/giphy.gif)](https://particles.matteobruni.it/#virus
 
 ---
 
