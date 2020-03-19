@@ -30,8 +30,10 @@
     <meta property="og:description" content="A lightweight TypeScript library for creating particles.">
     <meta property="og:image" content="https://particles.matteobruni.it/images/demo.png">
     <title>tsParticles</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsoneditor@8.6.3/dist/jsoneditor.min.css" integrity="sha256-thQmdfrg82/N5u9ybMxam1RKdSfaxOPCgl5q9AI/mDI=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css"
+          integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsoneditor@8.6.3/dist/jsoneditor.min.css"
+          integrity="sha256-thQmdfrg82/N5u9ybMxam1RKdSfaxOPCgl5q9AI/mDI=" crossorigin="anonymous">
     <style>
         html {
             height: 100%;
@@ -187,10 +189,14 @@
         <div class="count-particles"><span class="js-count-particles">--</span>particles</div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/jsoneditor@8.6.3/dist/jsoneditor.min.js" integrity="sha256-iha/QQwSuta8sBMrJ7j9cR7WF/duYY3RmJy+1JIYWjU=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.114.0/examples/js/libs/stats.min.js" integrity="sha256-scZlLg0QNRnJIByqrB0ZBkso5mTmVb5fXGwBZMGZVgA=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@1.10.3/dist/tsparticles.min.js" integrity="sha256-Z5FQGRXfGOC5vUx24cc8UHXOjXAQWO6vq9ddp1eoqH0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/js/all.min.js"
+        integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsoneditor@8.6.3/dist/jsoneditor.min.js"
+        integrity="sha256-iha/QQwSuta8sBMrJ7j9cR7WF/duYY3RmJy+1JIYWjU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.114.0/examples/js/libs/stats.min.js"
+        integrity="sha256-scZlLg0QNRnJIByqrB0ZBkso5mTmVb5fXGwBZMGZVgA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@1.10.3/dist/tsparticles.min.js"
+        integrity="sha256-Z5FQGRXfGOC5vUx24cc8UHXOjXAQWO6vq9ddp1eoqH0=" crossorigin="anonymous"></script>
 <script>
     (function () {
         let otherLoads;
@@ -246,7 +252,7 @@
         let updateParticles = function (editor) {
             let presetId = localStorage.presetId || 'default';
 
-            tsParticles.loadJSON('tsparticles', `/presets/${presetId}.json`).then((particles) => {
+            tsParticles.loadJSON('tsparticles', `/demo/presets/${presetId}.json`).then((particles) => {
                 localStorage.presetId = presetId;
                 editor.set(particles.options);
                 editor.expandAll();
