@@ -30,9 +30,123 @@
     <meta property="og:description" content="A lightweight TypeScript library for creating particles.">
     <meta property="og:image" content="https://particles.matteobruni.it/images/demo.png">
     <title>tsParticles</title>
-    <link href="css/fontawesome/all.css" rel="stylesheet" type="text/css">
-    <link href="css/jsoneditor/jsoneditor.css" rel="stylesheet" type="text/css">
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsoneditor@8.6.3/dist/jsoneditor.min.css" integrity="sha256-thQmdfrg82/N5u9ybMxam1RKdSfaxOPCgl5q9AI/mDI=" crossorigin="anonymous">
+    <style>
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            line-height: 1;
+            height: 100%;
+            overflow: auto;
+        }
+
+        #container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            min-height: 1vh;
+        }
+
+        #tsparticles-container {
+            position: relative;
+            flex: 3;
+            width: 100%;
+            height: 100%;
+        }
+
+        #tsparticles {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        #tsparticles .tsparticles-canvas-el {
+            -ms-transform: scale(1);
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1;
+            -webkit-animation: appear 1.4s 1;
+            animation: appear 1.4s 1;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        #editor-container {
+            flex: 1;
+            width: 100%;
+        }
+
+        #editor {
+            height: 100%;
+        }
+
+        #header {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        #filler {
+            flex: 100%;
+        }
+
+        #docs {
+            flex: auto;
+            white-space: nowrap;
+        }
+
+        #inputs {
+            display: flex;
+        }
+
+        #inputs select {
+            flex: 2;
+        }
+
+        #inputs button {
+            flex: 1;
+            white-space: nowrap;
+        }
+
+        /* ---- stats.js ---- */
+        .count-particles {
+            background: #002;
+            position: absolute;
+            top: 48px;
+            left: 0;
+            width: 80px;
+            color: #13e8e9;
+            font-size: 0.8em;
+            text-align: left;
+            text-indent: 4px;
+            line-height: 14px;
+            padding-bottom: 2px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .js-count-particles {
+            font-size: 1.1em;
+        }
+
+        #stats,
+        .count-particles {
+            -webkit-user-select: none;
+        }
+
+        #stats {
+            border-radius: 3px 3px 0 0;
+            overflow: hidden;
+        }
+
+        .count-particles {
+            border-radius: 0 0 3px 3px;
+        }
+    </style>
 </head>
 <body>
 <div id="header"><!-- stats - count particles-->
@@ -73,10 +187,122 @@
         <div class="count-particles"><span class="js-count-particles">--</span>particles</div>
     </div>
 </div>
-<script src="js/fontawesome/js/all.js"></script>
-<script src="js/jsoneditor/jsoneditor.js"></script>
-<script src="js/three/stats.min.js"></script>
-<script src="js/tsparticles/tsparticles.js"></script>
-<script src="js/demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsoneditor@8.6.3/dist/jsoneditor.min.js" integrity="sha256-iha/QQwSuta8sBMrJ7j9cR7WF/duYY3RmJy+1JIYWjU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.114.0/examples/js/libs/stats.min.js" integrity="sha256-scZlLg0QNRnJIByqrB0ZBkso5mTmVb5fXGwBZMGZVgA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@1.10.3/dist/tsparticles.min.js" integrity="sha256-Z5FQGRXfGOC5vUx24cc8UHXOjXAQWO6vq9ddp1eoqH0=" crossorigin="anonymous"></script>
+<script>
+    (function () {
+        let otherLoads;
+
+        if (window.onload) {
+            otherLoads = window.onload;
+        }
+
+        const stats = new Stats();
+
+        stats.setMode(0);
+        stats.domElement.style.position = "absolute";
+        stats.domElement.style.left = "0px";
+        stats.domElement.style.top = "0px";
+
+        let updateStats = function () {
+            const count_particles = document.querySelector(".js-count-particles");
+            const update = function () {
+                stats.begin();
+                stats.end();
+                if (tsParticles.domItem(0).particles.array) {
+                    count_particles.innerText = tsParticles.domItem(0).particles.array.length;
+                }
+                requestAnimationFrame(update);
+            };
+
+            requestAnimationFrame(update);
+        };
+
+        let updateBackground = function () {
+            const el = document.getElementById("tsparticles");
+            const options = tsParticles.domItem(0).sourceOptions;
+            const config = options.config_demo;
+            let backgroundImage;
+
+            if (config.background_image) {
+                if (config.background_image.startsWith("url(")) {
+                    backgroundImage = config.background_image;
+                } else {
+                    backgroundImage = `url('${config.background_image}')`;
+                }
+            } else {
+                backgroundImage = '';
+            }
+
+            el.style.backgroundColor = config.background_color;
+            el.style.backgroundImage = backgroundImage;
+            el.style.backgroundPosition = config.background_position;
+            el.style.backgroundRepeat = config.background_repeat;
+            el.style.backgroundSize = config.background_size;
+        };
+
+        let updateParticles = function (editor) {
+            let presetId = localStorage.presetId || 'default';
+
+            tsParticles.loadJSON('tsparticles', `/presets/${presetId}.json`).then((particles) => {
+                localStorage.presetId = presetId;
+                editor.set(particles.options);
+                editor.expandAll();
+                updateBackground();
+                updateStats();
+            });
+        };
+
+        window.onload = function () {
+            if (otherLoads) {
+                otherLoads();
+            }
+
+            const element = document.getElementById('editor');
+            const options = {
+                mode: 'tree',
+                modes: ['code', 'form', 'text', 'tree', 'view', 'preview'], // allowed modes
+                onError: function (err) {
+                    alert(err.toString())
+                },
+                onModeChange: function (newMode, oldMode) {
+                },
+                onChange: function () {
+                    updateBackground();
+                }
+            };
+            const editor = new JSONEditor(element, options);
+
+            const cmbPresets = document.getElementById('presets');
+
+            cmbPresets.onchange = function () {
+                localStorage.presetId = this.value;
+
+                updateParticles(editor);
+            };
+
+            if (!localStorage.presetId) {
+                localStorage.presetId = 'default';
+            }
+
+            cmbPresets.value = localStorage.presetId;
+            cmbPresets.onchange();
+
+            const btnUpdate = document.getElementById('btnUpdate');
+            btnUpdate.onclick = function () {
+                const particles = tsParticles.domItem(0);
+
+                particles.options = editor.get();
+                particles.refresh();
+
+                updateBackground();
+            };
+
+            document.body.querySelector('#tsparticles-container').appendChild(stats.domElement);
+        };
+    })();
+</script>
 </body>
 </html>
