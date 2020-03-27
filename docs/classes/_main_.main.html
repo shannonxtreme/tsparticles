@@ -115,7 +115,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/243399b/src/Main.ts#L93">Main.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/d3cd9c0/src/Main.ts#L95">Main.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -124,6 +124,7 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>All the <a href="_classes_container_.container.html">Container</a> objects loaded</p>
 						</li>
 					</ul>
 				</section>
@@ -131,13 +132,13 @@
 					<a name="domitem" class="tsd-anchor"></a>
 					<h3>dom<wbr>Item</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">dom<wbr>Item<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_classes_container_.container.html" class="tsd-signature-type">Container</a></li>
+						<li class="tsd-signature tsd-kind-icon">dom<wbr>Item<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/243399b/src/Main.ts#L101">Main.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/d3cd9c0/src/Main.ts#L104">Main.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -150,11 +151,12 @@
 								<li>
 									<h5>index: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the object index</p>
+										<p>The object index</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_classes_container_.container.html" class="tsd-signature-type">Container</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<p>The <a href="_classes_container_.container.html">Container</a> object at specified index, if present or not destroyed, otherwise undefined</p>
 						</li>
 					</ul>
 				</section>
@@ -162,13 +164,13 @@
 					<a name="load" class="tsd-anchor"></a>
 					<h3>load</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span>tagId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_interfaces_options_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span>tagId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_interfaces_options_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/243399b/src/Main.ts#L68">Main.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/d3cd9c0/src/Main.ts#L68">Main.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -181,17 +183,18 @@
 								<li>
 									<h5>tagId: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the particles container element id</p>
+										<p>The particles container element id</p>
 									</div>
 								</li>
 								<li>
 									<h5>params: <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_interfaces_options_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the options object to initialize the <a href="_classes_container_.container.html">Container</a></p>
+										<p>The options object to initialize the <a href="_classes_container_.container.html">Container</a></p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A Promise with the <a href="_classes_container_.container.html">Container</a> object created</p>
 						</li>
 					</ul>
 				</section>
@@ -199,13 +202,13 @@
 					<a name="loadfromarray" class="tsd-anchor"></a>
 					<h3>load<wbr>From<wbr>Array</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">load<wbr>From<wbr>Array<span class="tsd-signature-symbol">(</span>tagId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_interfaces_options_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, index<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+						<li class="tsd-signature tsd-kind-icon">load<wbr>From<wbr>Array<span class="tsd-signature-symbol">(</span>tagId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_interfaces_options_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, index<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/243399b/src/Main.ts#L59">Main.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/d3cd9c0/src/Main.ts#L56">Main.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -218,23 +221,24 @@
 								<li>
 									<h5>tagId: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the particles container element id</p>
+										<p>The particles container element id</p>
 									</div>
 								</li>
 								<li>
 									<h5>params: <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_interfaces_options_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the options array to get the item from</p>
+										<p>The options array to get the item from</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> index: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>if provided gets the corresponding item from the array</p>
+										<p>If provided gets the corresponding item from the array</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A Promise with the <a href="_classes_container_.container.html">Container</a> object created</p>
 						</li>
 					</ul>
 				</section>
@@ -248,7 +252,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/243399b/src/Main.ts#L78">Main.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/d3cd9c0/src/Main.ts#L79">Main.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,6 +277,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="_classes_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A Promise with the <a href="_classes_container_.container.html">Container</a> object created</p>
 						</li>
 					</ul>
 				</section>
@@ -286,7 +291,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/243399b/src/Main.ts#L86">Main.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/d3cd9c0/src/Main.ts#L87">Main.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -299,7 +304,7 @@
 								<li>
 									<h5>callback: <span class="tsd-signature-type">EventListenerOrEventListenerObject</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the function called after the click event is fired</p>
+										<p>The function called after the click event is fired</p>
 									</div>
 								</li>
 							</ul>
@@ -354,6 +359,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../modules/_main_.html#tsparticles" class="tsd-kind-icon">ts<wbr>Particles</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -364,6 +372,11 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 		</div>
@@ -381,7 +394,7 @@
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-161253125-1', 'auto');
+        ga('create', 'UA-159372955-1', 'auto');
         ga('send', 'pageview');
     </script>
 </body>
