@@ -46,6 +46,12 @@ export class Particles {
             options.particles.move.collisions;
     }
 
+    public redraw(): void {
+        this.clear();
+        this.init();
+        this.draw(0);
+    }
+
     public removeAt(index: number, quantity?: number): void {
         if (index >= 0 && index <= this.count) {
             this.array.splice(index, quantity ?? 1);
@@ -124,7 +130,7 @@ export class Particles {
         let pos: ICoordinates | undefined;
 
         if (mousePosition) {
-            pos = mousePosition.position || { x: 0, y: 0 };
+            pos = mousePosition.position ?? { x: 0, y: 0 };
         }
 
         for (let i = 0; i < nb; i++) {

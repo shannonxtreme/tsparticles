@@ -4,6 +4,7 @@ import { PolygonMaskType } from "../Enums/PolygonMaskType";
 import { Particle } from "./Particle";
 import { PolygonMaskInlineArrangement } from "../Enums/PolygonMaskInlineArrangement";
 import { Utils } from "./Utils/Utils";
+import { IDimension } from "../Interfaces/IDimension";
 
 type SvgAbsoluteCoordinatesTypes =
     | SVGPathSegArcAbs
@@ -31,19 +32,20 @@ export class PolygonMask {
     public raw?: ICoordinates[];
     public svg?: SVGSVGElement;
     public path?: SVGPathElement;
+    public polygonPath?: Path2D;
+    public dimension: IDimension;
+    public offset?: ICoordinates;
+    public readonly path2DSupported: boolean;
 
     private readonly container: Container;
-    private readonly path2DSupported: boolean;
-    private polygonPath?: Path2D;
     private polygonPathLength: number;
-    private width: number;
-    private height: number;
-    private offset?: ICoordinates;
 
     constructor(container: Container) {
         this.container = container;
-        this.width = 0;
-        this.height = 0;
+        this.dimension = {
+            height: 0,
+            width: 0
+        };
         this.polygonPathLength = 0;
         this.path2DSupported = window.hasOwnProperty("Path2D");
     }
@@ -93,6 +95,47 @@ export class PolygonMask {
         }
 
         return false;
+    }
+
+    public redraw(): void {
+        const container = this.container;
+        const options = container.options;
+
+        if (options.polygon.enable && options.polygon.type !== PolygonMaskType.none) {
+            if (this.redrawTimeout) {
+                clearTimeout(this.redrawTimeout);
+            }
+
+            this.redrawTimeout = setTimeout(() => {
+                this.parseSvgPathToPolygon().then((data) => {
+                    this.raw = data;
+
+                    this.createPath2D();
+
+                    container.particles.redraw();
+                });
+            }, 250);
+        }
+    }
+
+    public async init(): Promise<void> {
+        const container = this.container;
+        const options = container.options;
+
+        /* If is set the url of svg element, load it and parse into raw polygon data,
+         * works only with single path SVG
+         */
+        if (options.polygon.enable && options.polygon.url) {
+            this.raw = await this.parseSvgPathToPolygon(options.polygon.url);
+
+            this.createPath2D();
+        }
+    }
+
+    public reset(): void {
+        delete this.raw;
+        delete this.path;
+        delete this.svg;
     }
 
     public randomPointInPolygon(): ICoordinates {
@@ -149,9 +192,7 @@ export class PolygonMask {
             const req = await fetch(url);
             if (req.ok) {
                 const xml = await req.text();
-
                 const parser = new DOMParser();
-
                 const doc = parser.parseFromString(xml, "image/svg+xml");
 
                 this.svg = doc.getElementsByTagName("svg")[0];
@@ -160,8 +201,6 @@ export class PolygonMask {
                 if (this.path) {
                     this.polygonPathLength = this.path.getTotalLength();
                 }
-
-                this.createPath2D();
             } else {
                 console.error("tsParticles Error - during polygon mask download");
                 return;
@@ -170,13 +209,13 @@ export class PolygonMask {
 
         const scale = options.polygon.scale;
 
-        this.width = parseFloat(this.svg.getAttribute("width") || "0") * scale;
-        this.height = parseFloat(this.svg.getAttribute("height") || "0") * scale;
+        this.dimension.width = parseFloat(this.svg.getAttribute("width") || "0") * scale;
+        this.dimension.height = parseFloat(this.svg.getAttribute("height") || "0") * scale;
 
         /* centering of the polygon mask */
         this.offset = {
-            x: container.canvas.dimension.width / 2 - this.width / 2,
-            y: container.canvas.dimension.height / 2 - this.height / 2,
+            x: container.canvas.dimension.width / 2 - this.dimension.width / 2,
+            y: container.canvas.dimension.height / 2 - this.dimension.height / 2,
         };
 
         const len = this.path.pathSegList.numberOfItems;
@@ -254,9 +293,7 @@ export class PolygonMask {
     public drawPolygon(): void {
         const container = this.container;
 
-        if (this.raw) {
-            container.canvas.drawPolygonMask(this.raw);
-        }
+        container.canvas.drawPolygonMask();
     }
 
     public drawPointsOnPolygonPath(): void {
@@ -268,10 +305,8 @@ export class PolygonMask {
                     x: item.x,
                     y: item.y,
                 };
-                
-                const particle = new Particle(container, position);
 
-                container.particles.addParticle(particle);
+                container.particles.addParticle(new Particle(container, position));
             }
         }
     }
@@ -329,19 +364,43 @@ export class PolygonMask {
     }
 
     private createPath2D(): void {
-        if (!this.path2DSupported || !this.raw) {
+        if (!this.path2DSupported) {
             return;
         }
 
-        this.polygonPath = new Path2D();
-        this.polygonPath.moveTo(this.raw[0].x, this.raw[0].y);
+        const pathData = this.path?.getAttribute("d");
 
-        this.raw.forEach((pos, i) => {
-            if (i > 0) {
-                this.polygonPath?.lineTo(pos.x, pos.y);
+        if (pathData) {
+            const path = new Path2D(pathData);
+            const matrix = document.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGMatrix()
+
+            const finalPath = new Path2D();
+
+            const transform = matrix.scale(this.container.options.polygon.scale);
+
+            if (finalPath.addPath) {
+                finalPath.addPath(path, transform);
+
+                this.polygonPath = finalPath;
+            } else {
+                delete this.polygonPath;
             }
-        });
+        } else {
+            delete this.polygonPath;
+        }
 
-        this.polygonPath.closePath();
+        if (!this.polygonPath && this.raw) {
+            this.polygonPath = new Path2D();
+
+            this.polygonPath.moveTo(this.raw[0].x, this.raw[0].y);
+
+            this.raw.forEach((pos, i) => {
+                if (i > 0) {
+                    this.polygonPath?.lineTo(pos.x, pos.y);
+                }
+            });
+
+            this.polygonPath.closePath();
+        }
     }
 }

@@ -15,7 +15,6 @@ import type { RecursivePartial } from "../Types/RecursivePartial";
 import { Options } from "./Options/Options";
 import { Utils } from "./Utils/Utils";
 import type { IImageShape } from "../Interfaces/Options/Particles/Shape/IImageShape";
-import { PresetType } from "../Enums/PresetType";
 import { Presets } from "./Utils/Presets";
 
 declare global {
@@ -84,7 +83,7 @@ export class Container {
      * @param params the options to load
      * @param presets all the presets to load with options
      */
-    constructor(id: string, params?: RecursivePartial<IOptions>, ...presets: PresetType[]) {
+    constructor(id: string, params?: RecursivePartial<IOptions>, ...presets: string[]) {
         this.started = false;
         this.destroyed = false;
         this.id = id;
@@ -255,11 +254,9 @@ export class Container {
         this.particles.clear();
         this.retina.reset();
         this.canvas.clear();
+        this.polygon.reset();
 
         delete this.particles.lineLinkedColor;
-        delete this.polygon.raw;
-        delete this.polygon.path;
-        delete this.polygon.svg;
     }
 
     public async start(): Promise<void> {
@@ -271,12 +268,7 @@ export class Container {
 
         this.eventListeners.addListeners();
 
-        /* If is set the url of svg element, load it and parse into raw polygon data,
-         * works only with single path SVG
-         */
-        if (this.options.polygon.enable && this.options.polygon.url) {
-            this.polygon.raw = await this.polygon.parseSvgPathToPolygon(this.options.polygon.url);
-        }
+        await this.polygon.init();
 
         if (Utils.isInArray(ShapeType.char, this.options.particles.shape.type) ||
             Utils.isInArray(ShapeType.character, this.options.particles.shape.type)) {
