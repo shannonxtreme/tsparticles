@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>tsparticles</title>
-	<meta name="description" content="">
+	<meta name="description" content="Documentation for tsparticles">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -81,7 +81,6 @@
 				<p>You&#39;ll find the instructions <a href="https://github.com/matteobruni/tsparticles/blob/master/README.md#library-installation">below</a>, with all the links you need, and <em>don&#39;t be scared by <strong>TypeScript</strong>, it&#39;s just the source language</em>.</p>
 				<p><strong>The output files are just vanilla JavaScript</strong>. 🤩</p>
 				<p>CDNs and <code>npm</code> have all the sources you need in <strong>vanilla Javascript</strong>, a bundle browser ready (tsparticles.min.js) and all files splitted for <code>import</code> syntax.</p>
-				<p>Actually the <code>import</code> syntax doesn&#39;t have instructions, but you can contact me by mail or in the project&#39;s Slack, the link is below and I&#39;ll help you find the right solution. Until a guide will be ready this is the fastest solution.</p>
 				<p><strong>If you are still interested</strong> some lines below there are some instructions for migrating from the old particles.js library.</p>
 				<a href="#want-to-see-it-in-action-and-try-it" id="want-to-see-it-in-action-and-try-it" style="color: inherit; text-decoration: none;">
 					<h3>Want to see it in action and try it?</h3>
@@ -279,10 +278,10 @@ tsParticles.addPreset(<span class="hljs-string">"fire"</span>, {
 				</a>
 				<p>Documentation and Development references here: <a href="https://particles.matteobruni.it/docs/">https://particles.matteobruni.it/docs/</a> 📖</p>
 				<hr>
-				<a href="#strongemlibrary-installationemstrong" id="strongemlibrary-installationemstrong" style="color: inherit; text-decoration: none;">
+				<a href="#library-installation" id="library-installation" style="color: inherit; text-decoration: none;">
 					<h2><strong><em>Library installation</em></strong></h2>
 				</a>
-				<a href="#strongemhosting--cdnemstrong" id="strongemhosting--cdnemstrong" style="color: inherit; text-decoration: none;">
+				<a href="#hosting--cdn" id="hosting--cdn" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>Hosting / CDN</em></strong></h3>
 				</a>
 				<p><strong><em>Please use this hosts or your own to load tsParticles on your projects</em></strong></p>
@@ -295,22 +294,33 @@ tsParticles.addPreset(<span class="hljs-string">"fire"</span>, {
 				</a>
 				<p><a href="https://cdnjs.com/libraries/tsparticles"><img src="https://img.shields.io/cdnjs/v/tsparticles" alt="Cdnjs"></a></p>
 				<hr>
-				<a href="#strongemnpmemstrong" id="strongemnpmemstrong" style="color: inherit; text-decoration: none;">
+				<a href="#npm" id="npm" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>npm</em></strong></h3>
 				</a>
 				<p><a href="https://www.npmjs.com/package/tsparticles"><img src="https://badge.fury.io/js/tsparticles.svg" alt="npmjs"></a></p>
 				<pre><code class="language-shell">npm install tsparticles</code></pre>
-				<a href="#strongemyarnemstrong" id="strongemyarnemstrong" style="color: inherit; text-decoration: none;">
+				<a href="#yarn" id="yarn" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>yarn</em></strong></h3>
 				</a>
 				<pre><code class="language-shell">yarn add tsparticles</code></pre>
+				<a href="#import-and-require" id="import-and-require" style="color: inherit; text-decoration: none;">
+					<h4>Import and require</h4>
+				</a>
+				<p>Starting from version 1.12.7 <code>import</code> and <code>require</code> can be used to import <code>tsParticles</code>.</p>
+				<p>Now you can write something like this</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> tsParticles = <span class="hljs-built_in">require</span>(<span class="hljs-string">'tsparticles'</span>);
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">import</span> { tsParticles } <span class="hljs-keyword">from</span> <span class="hljs-string">'tsparticles'</span>;</code></pre>
+				<p>the imported <code>tsParticles</code> is the same instance you have including the script.</p>
 				<hr>
-				<a href="#strongemnugetemstrong" id="strongemnugetemstrong" style="color: inherit; text-decoration: none;">
+				<a href="#nuget" id="nuget" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>NuGet</em></strong></h3>
 				</a>
 				<p><a href="https://www.nuget.org/packages/tsParticles/"><img src="https://img.shields.io/nuget/v/tsParticles" alt="Nuget"></a></p>
 				<hr>
-				<a href="#strongemusageemstrong" id="strongemusageemstrong" style="color: inherit; text-decoration: none;">
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>Usage</em></strong></h3>
 				</a>
 				<p>Load tsParticles and configure the particles:</p>
@@ -380,7 +390,7 @@ particles.play();
 <span class="hljs-comment">// pause will stop the animations</span>
 particles.pause();</code></pre>
 				<hr>
-				<a href="#strongemdemo--generatoremstrong" id="strongemdemo--generatoremstrong" style="color: inherit; text-decoration: none;">
+				<a href="#demo--generator" id="demo--generator" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>Demo / Generator</em></strong></h3>
 				</a>
 				<p><a href="https://particles.matteobruni.it/">https://particles.matteobruni.it/</a></p>
@@ -652,7 +662,7 @@ particles.pause();</code></pre>
   <span class="hljs-attr">"pauseOnBlur"</span>: <span class="hljs-literal">true</span>
 }</code></pre>
 				<hr>
-				<a href="#strongemoptionsemstrong" id="strongemoptionsemstrong" style="color: inherit; text-decoration: none;">
+				<a href="#options" id="options" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>Options</em></strong></h3>
 				</a>
 				<table>
@@ -1450,12 +1460,6 @@ particles.pause();</code></pre>
 						<a href="modules/_classes_options_particles_particlesnumber_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Particles<wbr>Number&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_particlessize_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Particles<wbr>Size&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_particlessizeanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Particles<wbr>Size<wbr>Animation&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_particles_randomopacity_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Random<wbr>Opacity&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
@@ -1481,6 +1485,12 @@ particles.pause();</code></pre>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_particles_shape_shape_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shape/<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_size_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_sizeanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size<wbr>Animation&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_particles_stroke_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Stroke&quot;</a>
