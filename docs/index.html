@@ -69,8 +69,8 @@
 						<img src="https://particles.matteobruni.it/images/icons/rounded/tsParticles-96.png" alt="tsParticles" />
 					</a>
 				</p>
-				<a href="#tsparticles---typescript-particles" id="tsparticles---typescript-particles" style="color: inherit; text-decoration: none;">
-					<h1>tsParticles - TypeScript Particles</h1>
+				<a href="#tsparticles---typescript-particles---" id="tsparticles---typescript-particles---" style="color: inherit; text-decoration: none;">
+					<h1>tsParticles - TypeScript Particles <a href="https://www.jsdelivr.com/package/npm/tsparticles"><img src="https://data.jsdelivr.com/v1/package/npm/tsparticles/badge" alt="jsDelivr"></a> <a href="https://cdnjs.com/libraries/tsparticles"><img src="https://img.shields.io/cdnjs/v/tsparticles" alt="Cdnjs"></a> <a href="https://www.npmjs.com/package/tsparticles"><img src="https://badge.fury.io/js/tsparticles.svg" alt="npmjs"></a></h1>
 				</a>
 				<p><strong>A lightweight TypeScript library for creating particles. Dependency free (*) and browser ready!</strong></p>
 				<p><em><a href="https://github.com/VincentGarreau/particles.js">Particles.js</a> converted in TypeScript, dependency free (*), improved with new cool 😎 features and various bugs fixed and <strong>it&#39;s currently under development</strong>!</em></p>
@@ -94,7 +94,7 @@
 				<a href="#dependencies" id="dependencies" style="color: inherit; text-decoration: none;">
 					<h3>Dependencies</h3>
 				</a>
-				<p>You may have notices the * near dependency free. Well almost all features works without any dependency, but... Well there&#39;s a but. The <strong>Polygon Mask</strong> feature requires <code>pathseg</code> for some browsers to work well, and obviously the Icon Fonts (like <code>FontAwesome</code>) must be included in your page.</p>
+				<p>You may have notices the * near dependency free. Well almost all features works without any dependency, but... Well there&#39;s a but. The <strong>Polygon Mask</strong> feature requires <code>pathseg</code> for some browsers to work fine, and obviously the Icon Fonts (like <code>FontAwesome</code>) must be included in your page.</p>
 				<hr>
 				<a href="#migrating-from-particlesjs" id="migrating-from-particlesjs" style="color: inherit; text-decoration: none;">
 					<h2>Migrating from Particles.js</h2>
@@ -110,135 +110,7 @@
 				</a>
 				<p>tsParticles now supports some customizations 🥳.</p>
 				<p><strong>NOW YOU CAN CREATE YOUR OWN SHAPES OR PRESETS</strong></p>
-				<a href="#creating-a-custom-shape" id="creating-a-custom-shape" style="color: inherit; text-decoration: none;">
-					<h3>Creating a custom shape</h3>
-				</a>
-				<p>You can now create a script with your own shape to use in your website or for distributing it to others. All you have to do is a drawing function, give it a name and use it in the config.</p>
-				<p>Publish your shapes with <code>tsparticles-shape</code> tag on <code>NPM</code> so everyone can find it.</p>
-				<p>You&#39;ll find a sample below.</p>
-				<a href="#spiral-sample" id="spiral-sample" style="color: inherit; text-decoration: none;">
-					<h4>Spiral sample</h4>
-				</a>
-				<p><em>spiral.js</em> - The custom shape script, you can distribute it or reuse in all your websites.</p>
-				<pre><code class="language-javascript"><span class="hljs-comment">// call this method before initializing tsParticles, this shape will be available in all of your tsParticles instances</span>
-<span class="hljs-comment">// parameters: shape name, drawing method</span>
-<span class="hljs-comment">// opacity is just for shapes that needs a differenc opacity handling like images</span>
-tsParticles.addShape(<span class="hljs-string">"spiral"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context, particle, radius, opacity</span>) </span>{
-  <span class="hljs-keyword">const</span> shapeData = particle.shapeData;
-  <span class="hljs-keyword">const</span> realWidth = (radius - shapeData.innerRadius) / shapeData.lineSpacing;
-
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; realWidth * <span class="hljs-number">10</span>; i++) {
-    <span class="hljs-keyword">const</span> angle = <span class="hljs-number">0.1</span> * i;
-    <span class="hljs-keyword">const</span> x =
-      (shapeData.innerRadius + shapeData.lineSpacing * angle) * <span class="hljs-built_in">Math</span>.cos(angle);
-    <span class="hljs-keyword">const</span> y =
-      (shapeData.innerRadius + shapeData.lineSpacing * angle) * <span class="hljs-built_in">Math</span>.sin(angle);
-
-    context.lineTo(x, y);
-  }
-});</code></pre>
-				<p>If you prefere using classes you can, <code>IShapeDrawer</code> interface can be implemented in your code or at least a class with a method <code>draw(context, particle, radius)</code> in it. You can find a sample below.</p>
-				<pre><code class="language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpiralDrawer</span> </span>{
-  draw(context, particle, radius, opacity) {
-    <span class="hljs-keyword">const</span> shapeData = particle.shapeData;
-    <span class="hljs-keyword">const</span> realWidth = (radius - shapeData.innerRadius) / shapeData.lineSpacing;
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; realWidth * <span class="hljs-number">10</span>; i++) {
-      <span class="hljs-keyword">const</span> angle = <span class="hljs-number">0.1</span> * i;
-      <span class="hljs-keyword">const</span> x =
-        (shapeData.innerRadius + shapeData.lineSpacing * angle) *
-        <span class="hljs-built_in">Math</span>.cos(angle);
-      <span class="hljs-keyword">const</span> y =
-        (shapeData.innerRadius + shapeData.lineSpacing * angle) *
-        <span class="hljs-built_in">Math</span>.sin(angle);
-
-      context.lineTo(x, y);
-    }
-  }
-}
-
-<span class="hljs-comment">// call this method before initializing tsParticles, this shape will be available in all of your tsParticles instances</span>
-<span class="hljs-comment">// parameters: shape name, drawer class</span>
-tsParticles.addShape(<span class="hljs-string">"spiral"</span>, <span class="hljs-keyword">new</span> SpiralDrawer());</code></pre>
-				<p><em>config.json</em> - The config section to add to your config or in your plugin readme to teach others on how to use it.</p>
-				<pre><code class="language-javascript">{
-  <span class="hljs-comment">// [... omitted for brevity]</span>
-  <span class="hljs-string">"particles"</span>: {
-    <span class="hljs-comment">// [... omitted for brevity]</span>
-    <span class="hljs-string">"shape"</span>: {
-      <span class="hljs-string">"type"</span>: <span class="hljs-string">"spiral"</span>, <span class="hljs-comment">// this must match the name above, the type works as always, you can use an array with your custom shape inside</span>
-      <span class="hljs-string">"custom"</span>: {
-        <span class="hljs-comment">// this must match the name above, these are the values set in particle.shapeData (the first line of the method above)</span>
-        <span class="hljs-comment">// you can use array as value here too, the values will be random picked, like in standard shapes</span>
-        <span class="hljs-string">"spiral"</span>: {
-          <span class="hljs-string">"innerRadius"</span>: <span class="hljs-number">1</span>,
-          <span class="hljs-string">"lineSpacing"</span>: <span class="hljs-number">1</span>,
-          <span class="hljs-string">"close"</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// this value is used by tsParticles to close the path, if you don't want to close it set this value to false</span>
-          <span class="hljs-string">"fill"</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">// this value is used by tsParticles to fill the shape with the particles color, if you want only the stroke set this value to false</span>
-        }
-      }
-      <span class="hljs-comment">// [... omitted for brevity]</span>
-    }
-    <span class="hljs-comment">// [... omitted for brevity]</span>
-  }
-  <span class="hljs-comment">// [... omitted for brevity]</span>
-}</code></pre>
-				<a href="#creating-a-custom-preset" id="creating-a-custom-preset" style="color: inherit; text-decoration: none;">
-					<h3>Creating a custom preset</h3>
-				</a>
-				<p>You can now create a script with your own preset to use in your website or for distributing it to others. All you have to do is give it a name and set all the options you need it to load correctly. Remember to not import all config, properties not needed can be omitted.</p>
-				<p>Publish your preset with <code>tsparticles-preset</code> tag on <code>NPM</code> so everyone can find it.</p>
-				<p>You&#39;ll find a sample below.</p>
-				<a href="#fire-preset-sample" id="fire-preset-sample" style="color: inherit; text-decoration: none;">
-					<h4>Fire preset sample</h4>
-				</a>
-				<p><em>fire.preset.js</em> - The custom preset script, you can distribute it or reuse in all your websites.</p>
-				<pre><code class="language-javascript"><span class="hljs-comment">// call this method before initializing tsParticles, this preset will be available in all of your tsParticles instances</span>
-<span class="hljs-comment">// parameters: preset name, preset partial options</span>
-tsParticles.addPreset(<span class="hljs-string">"fire"</span>, {
-  <span class="hljs-attr">fpsLimit</span>: <span class="hljs-number">40</span>,
-  <span class="hljs-attr">particles</span>: {
-    <span class="hljs-attr">number</span>: {
-      <span class="hljs-attr">value</span>: <span class="hljs-number">80</span>,
-      <span class="hljs-attr">density</span>: {
-        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">value_area</span>: <span class="hljs-number">800</span>
-      }
-    },
-    <span class="hljs-attr">color</span>: {
-      <span class="hljs-attr">value</span>: [<span class="hljs-string">"#fdcf58"</span>, <span class="hljs-string">"#757676"</span>, <span class="hljs-string">"#f27d0c"</span>, <span class="hljs-string">"#800909"</span>, <span class="hljs-string">"#f07f13"</span>]
-    },
-    <span class="hljs-attr">opacity</span>: {
-      <span class="hljs-attr">value</span>: <span class="hljs-number">0.5</span>,
-      <span class="hljs-attr">random</span>: <span class="hljs-literal">true</span>
-    },
-    <span class="hljs-attr">size</span>: {
-      <span class="hljs-attr">value</span>: <span class="hljs-number">3</span>,
-      <span class="hljs-attr">random</span>: <span class="hljs-literal">true</span>
-    },
-    <span class="hljs-attr">move</span>: {
-      <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">speed</span>: <span class="hljs-number">6</span>,
-      <span class="hljs-attr">random</span>: <span class="hljs-literal">false</span>
-    }
-  },
-  <span class="hljs-attr">interactivity</span>: {
-    <span class="hljs-attr">events</span>: {
-      <span class="hljs-attr">onclick</span>: {
-        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">mode</span>: <span class="hljs-string">"push"</span>
-      },
-      <span class="hljs-attr">resize</span>: <span class="hljs-literal">true</span>
-    }
-  },
-  <span class="hljs-attr">background</span>: {
-    <span class="hljs-attr">image</span>: <span class="hljs-string">"radial-gradient(#4a0000, #000)"</span>
-  }
-});</code></pre>
-				<p><em>config.json</em> - The config section to add to your config or in your plugin readme to teach others on how to use it.</p>
-				<pre><code class="language-javascript">{
-  <span class="hljs-string">"preset"</span>: <span class="hljs-string">"fire"</span> <span class="hljs-comment">// this should match the name above, it can be used in array values too, it will be loaded in order like everyone else</span>
-}</code></pre>
+				<p><em>Read more <a href="https://github.com/matteobruni/tsparticles/wiki/Create-a-tsParticles-Plugin">here</a>...</em></p>
 				<hr>
 				<a href="#general-informations" id="general-informations" style="color: inherit; text-decoration: none;">
 					<h2>General Informations</h2>
@@ -258,8 +130,7 @@ tsParticles.addPreset(<span class="hljs-string">"fire"</span>, {
 						</tr>
 				</tbody></table>
 				<p><a href="https://www.codefactor.io/repository/github/matteobruni/tsparticles"><img src="https://www.codefactor.io/repository/github/matteobruni/tsparticles/badge" alt="CodeFactor"></a>
-					<a href="https://www.codacy.com/manual/ar3s/tsparticles?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=matteobruni/tsparticles&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/b983aaf3461a4c48b1e2eecce1ff1d74" alt="Codacy Badge"></a>
-				<a href="https://codeclimate.com/github/matteobruni/tsparticles/maintainability"><img src="https://api.codeclimate.com/v1/badges/5d7a0bb5e36cfd44fee6/maintainability" alt="Maintainability"></a></p>
+				<a href="https://www.codacy.com/manual/ar3s/tsparticles?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=matteobruni/tsparticles&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/b983aaf3461a4c48b1e2eecce1ff1d74" alt="Codacy Badge"></a></p>
 				<hr>
 				<a href="#social" id="social" style="color: inherit; text-decoration: none;">
 					<h2>Social</h2>
@@ -276,7 +147,7 @@ tsParticles.addPreset(<span class="hljs-string">"fire"</span>, {
 				<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
 					<h3>API Docs</h3>
 				</a>
-				<p>Documentation and Development references here: <a href="https://particles.matteobruni.it/docs/">https://particles.matteobruni.it/docs/</a> 📖</p>
+				<p>Documentation and Development references <a href="https://particles.matteobruni.it/docs/">here</a> 📖</p>
 				<hr>
 				<a href="#library-installation" id="library-installation" style="color: inherit; text-decoration: none;">
 					<h2><strong><em>Library installation</em></strong></h2>
@@ -293,11 +164,15 @@ tsParticles.addPreset(<span class="hljs-string">"fire"</span>, {
 					<h4>cdnjs</h4>
 				</a>
 				<p><a href="https://cdnjs.com/libraries/tsparticles"><img src="https://img.shields.io/cdnjs/v/tsparticles" alt="Cdnjs"></a></p>
+				<a href="#unpkg" id="unpkg" style="color: inherit; text-decoration: none;">
+					<h4>unpkg</h4>
+				</a>
+				<p><a href="https://unpkg.com/browse/tsparticles@1.12.10/dist/">https://unpkg.com/browse/tsparticles@1.12.10/dist/</a></p>
 				<hr>
 				<a href="#npm" id="npm" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>npm</em></strong></h3>
 				</a>
-				<p><a href="https://www.npmjs.com/package/tsparticles"><img src="https://badge.fury.io/js/tsparticles.svg" alt="npmjs"></a></p>
+				<p><a href="https://www.npmjs.com/package/tsparticles"><img src="https://badge.fury.io/js/tsparticles.svg" alt="npmjs"></a> <a href="https://www.npmjs.com/package/tsparticles"><img src="https://img.shields.io/npm/dt/tsparticles" alt="npmjs"></a></p>
 				<pre><code class="language-shell">npm install tsparticles</code></pre>
 				<a href="#yarn" id="yarn" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>yarn</em></strong></h3>
@@ -308,11 +183,11 @@ tsParticles.addPreset(<span class="hljs-string">"fire"</span>, {
 				</a>
 				<p>Starting from version 1.12.11 <code>import</code> and <code>require</code> can be used to import <code>tsParticles</code>.</p>
 				<p>Now you can write something like this</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> tsParticles = <span class="hljs-built_in">require</span>(<span class="hljs-string">'tsparticles'</span>);
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> tsParticles = <span class="hljs-built_in">require</span>(<span class="hljs-string">"tsparticles"</span>);
 
 <span class="hljs-comment">// or</span>
 
-<span class="hljs-keyword">import</span> { tsParticles } <span class="hljs-keyword">from</span> <span class="hljs-string">'tsparticles'</span>;</code></pre>
+<span class="hljs-keyword">import</span> { tsParticles } <span class="hljs-keyword">from</span> <span class="hljs-string">"tsparticles"</span>;</code></pre>
 				<p>the imported <code>tsParticles</code> is the same instance you have including the script.</p>
 				<hr>
 				<a href="#nuget" id="nuget" style="color: inherit; text-decoration: none;">
@@ -334,10 +209,10 @@ tsParticles.addPreset(<span class="hljs-string">"fire"</span>, {
 <span class="hljs-comment">/* tsParticles.loadJSON(@dom-id, @path-json, @callback (optional)); */</span>
 tsParticles
   .loadJSON(<span class="hljs-string">"tsparticles"</span>, <span class="hljs-string">"presets/default.json"</span>)
-  .then(<span class="hljs-function"><span class="hljs-params">container</span> =&gt;</span> {
+  .then(<span class="hljs-function">(<span class="hljs-params">container</span>) =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"callback - tsparticles config loaded"</span>);
   })
-  .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
+  .catch(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
     <span class="hljs-built_in">console</span>.error(error);
   });
 
@@ -357,7 +232,7 @@ tsParticles.loadFromArray(<span class="hljs-string">"tsparticles"</span>, [
   },
   {
     <span class="hljs-comment">/* other options here */</span>
-  }
+  },
 ]); <span class="hljs-comment">//random object</span>
 tsParticles.loadFromArray(
   <span class="hljs-string">"tsparticles"</span>,
@@ -367,7 +242,7 @@ tsParticles.loadFromArray(
     },
     {
       <span class="hljs-comment">/* other options here */</span>
-    }
+    },
   ],
   <span class="hljs-number">1</span>
 ); <span class="hljs-comment">//the second one</span>
@@ -377,7 +252,7 @@ tsParticles.loadFromArray(
 
 <span class="hljs-comment">/* tsParticles.setOnClickHandler(@callback); */</span>
 <span class="hljs-comment">/* this will be fired from all particles loaded */</span>
-tsParticles.setOnClickHandler(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+tsParticles.setOnClickHandler(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
   <span class="hljs-comment">/* custom on click handler */</span>
 });
 
@@ -389,6 +264,22 @@ tsParticles.setOnClickHandler(<span class="hljs-function"><span class="hljs-para
 particles.play();
 <span class="hljs-comment">// pause will stop the animations</span>
 particles.pause();</code></pre>
+				<a href="#import-and-require-1" id="import-and-require-1" style="color: inherit; text-decoration: none;">
+					<h4>Import and require</h4>
+				</a>
+				<p>Starting from version 1.12.7 <code>import</code> and <code>require</code> can be used to import <code>tsParticles</code>.</p>
+				<p>Now you can write something like this</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> tsParticles = <span class="hljs-built_in">require</span>(<span class="hljs-string">"tsparticles"</span>);
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">import</span> { tsParticles } <span class="hljs-keyword">from</span> <span class="hljs-string">"tsparticles"</span>;</code></pre>
+				<a href="#reactjs" id="reactjs" style="color: inherit; text-decoration: none;">
+					<h3>React.js</h3>
+				</a>
+				<p><strong>tsParticles ❤️ react-particles-js</strong></p>
+				<p>Starting from <a href="https://github.com/Wufe/react-particles-js">react-particles-js</a> version 3.0.0 it has added tsParticles as a dependency.</p>
+				<p>You can follow the instructions <a href="https://github.com/Wufe/react-particles-js/blob/master/README.md">here</a> to install <code>react-particles-js</code> and use all the configurations described in this readme to configure the particles.</p>
 				<hr>
 				<a href="#demo--generator" id="demo--generator" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>Demo / Generator</em></strong></h3>
@@ -438,908 +329,25 @@ particles.pause();</code></pre>
 				<p><em>Don&#39;t click! DON&#39;T CLICK! OH NO IT&#39;S SPREADING!!!!</em></p>
 				<hr>
 				<p><strong>particles.json</strong></p>
-				<pre><code class="language-json">{
-  <span class="hljs-attr">"detectRetina"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"fpsLimit"</span>: <span class="hljs-number">60</span>,
-  <span class="hljs-attr">"interactivity"</span>: {
-    <span class="hljs-attr">"detectsOn"</span>: <span class="hljs-string">"canvas"</span>,
-    <span class="hljs-attr">"events"</span>: {
-      <span class="hljs-attr">"onClick"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"push"</span>
-      },
-      <span class="hljs-attr">"onDiv"</span>: {
-        <span class="hljs-attr">"elementId"</span>: <span class="hljs-string">"repulse-div"</span>,
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"repulse"</span>
-      },
-      <span class="hljs-attr">"onHover"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"grab"</span>,
-        <span class="hljs-attr">"parallax"</span>: {
-          <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-          <span class="hljs-attr">"force"</span>: <span class="hljs-number">2</span>,
-          <span class="hljs-attr">"smooth"</span>: <span class="hljs-number">10</span>
-        }
-      },
-      <span class="hljs-attr">"resize"</span>: <span class="hljs-literal">true</span>
-    },
-    <span class="hljs-attr">"modes"</span>: {
-      <span class="hljs-attr">"bubble"</span>: {
-        <span class="hljs-attr">"distance"</span>: <span class="hljs-number">200</span>,
-        <span class="hljs-attr">"duration"</span>: <span class="hljs-number">0.4</span>,
-        <span class="hljs-attr">"opacity"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"size"</span>: <span class="hljs-number">80</span>
-      },
-      <span class="hljs-attr">"connect"</span>: {
-        <span class="hljs-attr">"distance"</span>: <span class="hljs-number">80</span>,
-        <span class="hljs-attr">"lineLinked"</span>: {
-          <span class="hljs-attr">"opacity"</span>: <span class="hljs-number">0.5</span>
-        },
-        <span class="hljs-attr">"radius"</span>: <span class="hljs-number">60</span>
-      },
-      <span class="hljs-attr">"grab"</span>: {
-        <span class="hljs-attr">"distance"</span>: <span class="hljs-number">100</span>,
-        <span class="hljs-attr">"lineLinked"</span>: {
-          <span class="hljs-attr">"opacity"</span>: <span class="hljs-number">1</span>
-        }
-      },
-      <span class="hljs-attr">"push"</span>: {
-        <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">4</span>
-      },
-      <span class="hljs-attr">"remove"</span>: {
-        <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">2</span>
-      },
-      <span class="hljs-attr">"repulse"</span>: {
-        <span class="hljs-attr">"distance"</span>: <span class="hljs-number">200</span>,
-        <span class="hljs-attr">"duration"</span>: <span class="hljs-number">0.4</span>
-      },
-      <span class="hljs-attr">"slow"</span>: {
-        <span class="hljs-attr">"_active"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"factor"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"radius"</span>: <span class="hljs-number">0</span>
-      }
-    }
-  },
-  <span class="hljs-attr">"particles"</span>: {
-    <span class="hljs-attr">"color"</span>: {
-      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"#ffffff"</span>
-    },
-    <span class="hljs-attr">"lineLinked"</span>: {
-      <span class="hljs-attr">"blink"</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-attr">"color"</span>: {
-        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"#fff"</span>
-      },
-      <span class="hljs-attr">"consent"</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-attr">"distance"</span>: <span class="hljs-number">150</span>,
-      <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">"opacity"</span>: <span class="hljs-number">0.4</span>,
-      <span class="hljs-attr">"shadow"</span>: {
-        <span class="hljs-attr">"blur"</span>: <span class="hljs-number">5</span>,
-        <span class="hljs-attr">"color"</span>: {
-          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"lime"</span>
-        },
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>
-      },
-      <span class="hljs-attr">"width"</span>: <span class="hljs-number">1</span>
-    },
-    <span class="hljs-attr">"move"</span>: {
-      <span class="hljs-attr">"attract"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"rotate"</span>: {
-          <span class="hljs-attr">"x"</span>: <span class="hljs-number">3000</span>,
-          <span class="hljs-attr">"y"</span>: <span class="hljs-number">3000</span>
-        }
-      },
-      <span class="hljs-attr">"collisions"</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-attr">"direction"</span>: <span class="hljs-string">"none"</span>,
-      <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">"outMode"</span>: <span class="hljs-string">"out"</span>,
-      <span class="hljs-attr">"random"</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-attr">"speed"</span>: <span class="hljs-number">2</span>,
-      <span class="hljs-attr">"straight"</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-attr">"trail"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"length"</span>: <span class="hljs-number">10</span>,
-        <span class="hljs-attr">"fillColor"</span>: {
-          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"#000000"</span>
-        }
-      }
-    },
-    <span class="hljs-attr">"number"</span>: {
-      <span class="hljs-attr">"density"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"area"</span>: <span class="hljs-number">800</span>
-      },
-      <span class="hljs-attr">"limit"</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-attr">"value"</span>: <span class="hljs-number">100</span>
-    },
-    <span class="hljs-attr">"opacity"</span>: {
-      <span class="hljs-attr">"animation"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"minimumValue"</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-attr">"speed"</span>: <span class="hljs-number">2</span>,
-        <span class="hljs-attr">"sync"</span>: <span class="hljs-literal">false</span>
-      },
-      <span class="hljs-attr">"random"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"minimumValue"</span>: <span class="hljs-number">1</span>
-      },
-      <span class="hljs-attr">"value"</span>: <span class="hljs-number">1</span>
-    },
-    <span class="hljs-attr">"rotate"</span>: {
-      <span class="hljs-attr">"animation"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"speed"</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-attr">"sync"</span>: <span class="hljs-literal">false</span>
-      },
-      <span class="hljs-attr">"direction"</span>: <span class="hljs-string">"clockwise"</span>,
-      <span class="hljs-attr">"random"</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-attr">"value"</span>: <span class="hljs-number">0</span>
-    },
-    <span class="hljs-attr">"shape"</span>: {
-      <span class="hljs-attr">"character"</span>: {
-        <span class="hljs-attr">"fill"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"font"</span>: <span class="hljs-string">"Verdana"</span>,
-        <span class="hljs-attr">"style"</span>: <span class="hljs-string">""</span>,
-        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"*"</span>,
-        <span class="hljs-attr">"weight"</span>: <span class="hljs-string">"400"</span>
-      },
-      <span class="hljs-attr">"image"</span>: {
-        <span class="hljs-attr">"height"</span>: <span class="hljs-number">100</span>,
-        <span class="hljs-attr">"replaceColor"</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">"src"</span>: <span class="hljs-string">""</span>,
-        <span class="hljs-attr">"width"</span>: <span class="hljs-number">100</span>
-      },
-      <span class="hljs-attr">"polygon"</span>: {
-        <span class="hljs-attr">"sides"</span>: <span class="hljs-number">5</span>
-      },
-      <span class="hljs-attr">"stroke"</span>: {
-        <span class="hljs-attr">"color"</span>: {
-          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"#ff0000"</span>
-        },
-        <span class="hljs-attr">"width"</span>: <span class="hljs-number">0</span>
-      },
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"circle"</span>
-    },
-    <span class="hljs-attr">"size"</span>: {
-      <span class="hljs-attr">"animation"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"minimumValue"</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-attr">"speed"</span>: <span class="hljs-number">5</span>,
-        <span class="hljs-attr">"sync"</span>: <span class="hljs-literal">false</span>
-      },
-      <span class="hljs-attr">"random"</span>: {
-        <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"minimumValue"</span>: <span class="hljs-number">1</span>
-      },
-      <span class="hljs-attr">"value"</span>: <span class="hljs-number">3</span>
-    },
-    <span class="hljs-attr">"shadow"</span>: {
-      <span class="hljs-attr">"blur"</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-attr">"color"</span>: {
-        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"#000000"</span>
-      },
-      <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-attr">"offset"</span>: {
-        <span class="hljs-attr">"x"</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-attr">"y"</span>: <span class="hljs-number">0</span>
-      }
-    }
-  },
-  <span class="hljs-attr">"polygon"</span>: {
-    <span class="hljs-attr">"draw"</span>: {
-      <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-      <span class="hljs-attr">"stroke"</span>: {
-        <span class="hljs-attr">"color"</span>: {
-          <span class="hljs-attr">"value"</span>: <span class="hljs-string">"#fff"</span>
-        },
-        <span class="hljs-attr">"width"</span>: <span class="hljs-number">0.5</span>,
-        <span class="hljs-attr">"opacity"</span>: <span class="hljs-number">1</span>
-      }
-    },
-    <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-attr">"inline"</span>: {
-      <span class="hljs-attr">"arrangement"</span>: <span class="hljs-string">"one-per-point"</span>
-    },
-    <span class="hljs-attr">"move"</span>: {
-      <span class="hljs-attr">"radius"</span>: <span class="hljs-number">10</span>,
-      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"path"</span>
-    },
-    <span class="hljs-attr">"scale"</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"none"</span>,
-    <span class="hljs-attr">"url"</span>: <span class="hljs-string">""</span>
-  },
-  <span class="hljs-attr">"backgroundMask"</span>: {
-    <span class="hljs-attr">"cover"</span>: {
-      <span class="hljs-attr">"color"</span>: {
-        <span class="hljs-attr">"value"</span>: <span class="hljs-string">"#fff"</span>
-      },
-      <span class="hljs-attr">"opacity"</span>: <span class="hljs-number">1</span>
-    },
-    <span class="hljs-attr">"enable"</span>: <span class="hljs-literal">false</span>
-  },
-  <span class="hljs-attr">"pauseOnBlur"</span>: <span class="hljs-literal">true</span>
-}</code></pre>
+				<p>You can find a sample config <a href="https://github.com/matteobruni/tsparticles/wiki/tsParticles-Sample-Config">here</a> 📖</p>
 				<hr>
 				<a href="#options" id="options" style="color: inherit; text-decoration: none;">
 					<h3><strong><em>Options</em></strong></h3>
 				</a>
-				<table>
-					<thead>
-						<tr>
-							<th>property</th>
-							<th>option type</th>
-							<th>example</th>
-							<th>notes</th>
-						</tr>
-					</thead>
-					<tbody><tr>
-							<td><code>background</code></td>
-							<td><code>object</code></td>
-							<td></td>
-							<td>See Background options below</td>
-						</tr>
-						<tr>
-							<td><code>backgroundMask</code></td>
-							<td><code>object</code></td>
-							<td></td>
-							<td>See Background Mask options below</td>
-						</tr>
-						<tr>
-							<td><code>detectRetina</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td>replaces the old <code>retina_detect</code> property</td>
-						</tr>
-						<tr>
-							<td><code>fpsLimit</code></td>
-							<td><code>number</code></td>
-							<td><code>30</code></td>
-							<td><em>defaults to <code>30</code></em>, replaces the old <code>fps_limit</code> property</td>
-						</tr>
-						<tr>
-							<td><code>interactivity</code></td>
-							<td><code>object</code></td>
-							<td></td>
-							<td>See Interactivity options below</td>
-						</tr>
-						<tr>
-							<td><code>pauseOnBlur</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td>pauses the animations when the page isn&#39;t on foreground</td>
-						</tr>
-						<tr>
-							<td><code>preset</code></td>
-							<td><code>string</code> <br /> <code>array</code></td>
-							<td><code>&quot;basic&quot;</code> <br /> <code>[ &quot;basic&quot;, &quot;60fps&quot; ]</code></td>
-							<td>You can use this property to load one or more presets for focusing on important properties and not all config. <br /> All values available by default are: <br /> <code>&quot;basic&quot;</code> <br /> <code>&quot;backgroundMask&quot;</code> <br /> <code>&quot;fontAwesome&quot;</code> <br /> <code>&quot;snow&quot;</code> <br /> <code>&quot;bouncing&quot;</code> <br /> <code>&quot;stars&quot;</code> <br /> <code>&quot;60fps&quot;</code></td>
-						</tr>
-				</tbody></table>
-				<a href="#background" id="background" style="color: inherit; text-decoration: none;">
-					<h4>Background</h4>
+				<p>You can find all options available <a href="https://github.com/matteobruni/tsparticles/wiki/tsParticles-Options">here</a> 📖</p>
+				<hr>
+				<p>
+					<a href="https://www.jetbrains.com/?from=tsParticles">
+						<img src="https://cdn.matteobruni.it/images/jetbrains-logos/jetbrains-variant-4.png" height="150" alt="JetBrains" />
+					</a>
+					<a href="https://www.jetbrains.com/webstorm/?from=tsParticles">
+						<img src="https://cdn.matteobruni.it/images/jetbrains-logos/webstorm_logos/logo.png" height="150" alt="JetBrains" />
+					</a>
+				</p>
+				<a href="#huge-thanks-to-jetbrains-for-the-2020-open-source-license" id="huge-thanks-to-jetbrains-for-the-2020-open-source-license" style="color: inherit; text-decoration: none;">
+					<h3>Huge thanks to <a href="https://www.jetbrains.com/?from=tsParticles">JetBrains</a> for the 2020 Open Source License!</h3>
 				</a>
-				<table>
-					<thead>
-						<tr>
-							<th>key</th>
-							<th>option type</th>
-							<th>example</th>
-							<th>notes</th>
-						</tr>
-					</thead>
-					<tbody><tr>
-							<td><code>color.value</code></td>
-							<td>HEX (<code>string</code>) <br /> RGB (<code>object</code>) <br /> HSL (<code>object</code>) <br /> random (<code>string</code>)</td>
-							<td><code>&quot;#0d47a1&quot;</code> <br /> <code>{r:182, g:25, b:36}</code> <br /> <code>{h:356, s:76, l:41}</code> <br /></td>
-							<td>defaults to no color, fully transparent canvas</td>
-						</tr>
-						<tr>
-							<td><code>opacity</code></td>
-							<td>number</td>
-							<td></td>
-							<td>This property works with <code>color.value</code>, the <code>color.value</code> property has no alpha values, so if you don&#39;t use a <code>string</code> with alpha values set this for transparency</td>
-						</tr>
-						<tr>
-							<td><code>image</code></td>
-							<td>string</td>
-							<td></td>
-							<td>This property is directly set to the CSS background-image, you can use the same syntax.</td>
-						</tr>
-						<tr>
-							<td><code>position</code></td>
-							<td>string</td>
-							<td></td>
-							<td>This property is directly set to the CSS background-position, you can use the same syntax.</td>
-						</tr>
-						<tr>
-							<td><code>repeat</code></td>
-							<td>string</td>
-							<td></td>
-							<td>This property is directly set to the CSS background-repeat, you can use the same syntax.</td>
-						</tr>
-						<tr>
-							<td><code>size</code></td>
-							<td>string</td>
-							<td></td>
-							<td>This property is directly set to the CSS background-size, you can use the same syntax.</td>
-						</tr>
-				</tbody></table>
-				<a href="#background-mask" id="background-mask" style="color: inherit; text-decoration: none;">
-					<h4>Background Mask</h4>
-				</a>
-				<table>
-					<thead>
-						<tr>
-							<th>key</th>
-							<th>option type</th>
-							<th>example</th>
-							<th>notes</th>
-						</tr>
-					</thead>
-					<tbody><tr>
-							<td><code>enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>cover.value</code></td>
-							<td>HEX (<code>string</code>) <br /> RGB (<code>object</code>) <br /> HSL (<code>object</code>) <br /> random (<code>string</code>)</td>
-							<td><code>&quot;#0d47a1&quot;</code> <br /> <code>{r:182, g:25, b:36}</code> <br /> <code>{h:356, s:76, l:41}</code> <br /> <code>&quot;random&quot;</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>cover.opacity</code></td>
-							<td><code>number</code></td>
-							<td><code>0...1</code></td>
-							<td></td>
-						</tr>
-				</tbody></table>
-				<a href="#interactivity" id="interactivity" style="color: inherit; text-decoration: none;">
-					<h4>Interactivity</h4>
-				</a>
-				<table>
-					<thead>
-						<tr>
-							<th>key</th>
-							<th>option type</th>
-							<th>example</th>
-							<th>notes</th>
-						</tr>
-					</thead>
-					<tbody><tr>
-							<td><code>detectsOn</code></td>
-							<td><code>string</code></td>
-							<td><code>&quot;canvas&quot;, &quot;window&quot;, &quot;parent&quot;</code></td>
-							<td>replaces the old <code>detect_on</code> property</td>
-						</tr>
-						<tr>
-							<td><code>events.onHover.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.onHover.mode</code></td>
-							<td><code>string</code> <br /> <code>array</code></td>
-							<td><code>&quot;grab&quot;</code> <br /> <code>&quot;bubble&quot;</code> <br /> <code>&quot;repulse&quot;</code> <br /> <code>&quot;connect&quot;</code> <br /> <code>[&quot;grab&quot;, &quot;bubble&quot;]</code></td>
-							<td>the array enables all the specified modes</td>
-						</tr>
-						<tr>
-							<td><code>events.onClick.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.onClick.mode</code></td>
-							<td><code>string</code> <br /> <code>array</code></td>
-							<td><code>&quot;push&quot;</code> <br /> <code>&quot;remove&quot;</code> <br /> <code>&quot;bubble&quot;</code> <br /> <code>&quot;repulse&quot;</code> <br /> <code>[&quot;push&quot;, &quot;repulse&quot;]</code></td>
-							<td>the array enables all the specified modes</td>
-						</tr>
-						<tr>
-							<td><code>events.onDiv.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.onDiv.mode</code></td>
-							<td><code>string</code> <br /> <code>array</code></td>
-							<td><code>&quot;repulse&quot;</code> <br /> <code>[&quot;repulse&quot;]</code></td>
-							<td>the array enables all the specified modes</td>
-						</tr>
-						<tr>
-							<td><code>events.onDiv.elementId</code></td>
-							<td><code>string</code></td>
-							<td><code>repulse-div</code></td>
-							<td>replaces the old <code>el</code> property</td>
-						</tr>
-						<tr>
-							<td><code>events.resize</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.connect.distance</code></td>
-							<td><code>number</code></td>
-							<td><code>100</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.connect.radius</code></td>
-							<td><code>number</code></td>
-							<td><code>60</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.connect.lineLinked.opacity</code></td>
-							<td><code>number</code></td>
-							<td><code>0...1</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.grab.distance</code></td>
-							<td><code>number</code></td>
-							<td><code>100</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.grab.lineLinked.opacity</code></td>
-							<td><code>number</code></td>
-							<td><code>0...1</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.bubble.distance</code></td>
-							<td><code>number</code></td>
-							<td><code>100</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.bubble.size</code></td>
-							<td><code>number</code></td>
-							<td><code>40</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.bubble.duration</code></td>
-							<td><code>number</code></td>
-							<td><code>0.4</code></td>
-							<td>seconds</td>
-						</tr>
-						<tr>
-							<td><code>events.modes.repulse.distance</code></td>
-							<td><code>number</code></td>
-							<td><code>200</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.repulse.duration</code></td>
-							<td><code>number</code></td>
-							<td><code>1.2</code></td>
-							<td>seconds</td>
-						</tr>
-						<tr>
-							<td><code>events.modes.push.quantity</code></td>
-							<td><code>number</code></td>
-							<td><code>4</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>events.modes.remove.quantity</code></td>
-							<td><code>number</code></td>
-							<td><code>4</code></td>
-							<td></td>
-						</tr>
-				</tbody></table>
-				<a href="#particles" id="particles" style="color: inherit; text-decoration: none;">
-					<h4>Particles</h4>
-				</a>
-				<table>
-					<thead>
-						<tr>
-							<th>key</th>
-							<th>option type</th>
-							<th>example</th>
-							<th>notes</th>
-						</tr>
-					</thead>
-					<tbody><tr>
-							<td><code>number.value</code></td>
-							<td><code>number</code></td>
-							<td><code>40</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>number.limit</code></td>
-							<td><code>number</code></td>
-							<td><code>200</code></td>
-							<td><code>0</code> or less disables the limit</td>
-						</tr>
-						<tr>
-							<td><code>number.density.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>number.density.area</code></td>
-							<td><code>number</code></td>
-							<td><code>800</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>color.value</code></td>
-							<td>HEX (<code>string</code>) <br /> RGB (<code>object</code>) <br /> HSL (<code>object</code>) <br /> array (<code>HEX</code>) <br /> random (<code>string</code>)</td>
-							<td><code>&quot;#0d47a1&quot;</code> <br /> <code>{r:182, g:25, b:36}</code> <br /> <code>{h:356, s:76, l:41}</code> <br /> <code>[&quot;#b61924&quot;, &quot;#333333&quot;, &quot;999999&quot;]</code> <br /> <code>&quot;random&quot;</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.type</code></td>
-							<td><code>string</code> <br /> <code>array</code></td>
-							<td><code>&quot;circle&quot;</code> <br /> <code>&quot;line&quot;</code> <br /> <code>&quot;edge&quot;</code> <br /> <code>&quot;triangle&quot;</code> <br /> <code>&quot;polygon&quot;</code> <br /> <code>&quot;star&quot;</code> <br /> <code>&quot;image&quot;</code> <br /> <code>[&quot;circle&quot;, &quot;triangle&quot;, &quot;image&quot;]</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.stroke.width</code></td>
-							<td><code>number</code></td>
-							<td><code>2</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.stroke.color</code></td>
-							<td>HEX (<code>string</code>) <br /> RGB (<code>object</code>) <br /> HSL (<code>object</code>) <br /> random (<code>string</code>)</td>
-							<td><code>&quot;#0d47a1&quot;</code> <br /> <code>{r:182, g:25, b:36}</code> <br /> <code>{h:356, s:76, l:41}</code> <br /> <code>&quot;random&quot;</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.polygon.sides</code></td>
-							<td><code>number</code></td>
-							<td><code>5</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.character</code></td>
-							<td><code>object</code> <br /> <code>array</code></td>
-							<td></td>
-							<td>A single character object like below or an array of the same objects</td>
-						</tr>
-						<tr>
-							<td><code>shape.character.value</code></td>
-							<td><code>object</code> <br /> array</td>
-							<td><code>\uf179</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.character.font</code></td>
-							<td><code>string</code></td>
-							<td><code>Font Awesome 5 Brands</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.character.style</code></td>
-							<td><code>string</code></td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.character.weight</code></td>
-							<td><code>string</code></td>
-							<td><code>400</code></td>
-							<td>font weight, for FontAwesome it&#39;s required to use the exact weight for every family, Chrome won&#39;t render correctly otherwise.</td>
-						</tr>
-						<tr>
-							<td><code>shape.character.fill</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td>Fills or strokes the text. If the fonts doesn&#39;t support the stroke or the fill you won&#39;t see any particle. FontAwesome requires <code>fill: true</code></td>
-						</tr>
-						<tr>
-							<td><code>shape.image</code></td>
-							<td>object / array</td>
-							<td>A single image object like below or an array of the same objects</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.image.src</code></td>
-							<td>path link <br /> svg / png / gif / jpg</td>
-							<td><code>&quot;assets/img/yop.svg&quot;</code> <br /> <code>&quot;http://mywebsite.com/assets/img/yop.png&quot;</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>shape.image.width</code></td>
-							<td><code>number</code></td>
-							<td><code>100</code></td>
-							<td>for aspect ratio</td>
-						</tr>
-						<tr>
-							<td><code>shape.image.height</code></td>
-							<td><code>number</code></td>
-							<td><code>100</code></td>
-							<td>for aspect ratio</td>
-						</tr>
-						<tr>
-							<td><code>opacity.value</code></td>
-							<td><code>number</code></td>
-							<td><code>0...1</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>opacity.random</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>opacity.animation.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>opacity.animation.speed</code></td>
-							<td><code>number</code></td>
-							<td><code>3</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>opacity.animation.minimumValue</code></td>
-							<td><code>number</code></td>
-							<td><code>0...1</code></td>
-							<td>replaces the old <code>opacity_min</code> property</td>
-						</tr>
-						<tr>
-							<td><code>opacity.animation.sync</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>rotate.value</code></td>
-							<td><code>number</code></td>
-							<td><code>45</code></td>
-							<td>angle in degrees</td>
-						</tr>
-						<tr>
-							<td><code>rotate.random</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>rotate.direction</code></td>
-							<td><code>string</code></td>
-							<td><code>clockwise</code> / <code>counterclockwise</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>rotate.animation.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>rotate.animation.speed</code></td>
-							<td><code>number</code></td>
-							<td>5</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>rotate.animation.sync</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>size.value</code></td>
-							<td><code>number</code></td>
-							<td><code>20</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>size.random</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>size.animation.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>size.animation.speed</code></td>
-							<td><code>number</code></td>
-							<td><code>3</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>size.animation.minimumValue</code></td>
-							<td><code>number</code></td>
-							<td><code>0.25</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>size.animation.sync</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>lineLinked.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>lineLinked.distance</code></td>
-							<td><code>number</code></td>
-							<td><code>150</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>lineLinked.color</code></td>
-							<td>HEX (<code>string</code>) <br /> RGB (<code>object</code>) <br /> HSL (<code>object</code>) <br /> random (<code>string</code>)</td>
-							<td><code>&quot;#0d47a1&quot;</code> <br /> <code>{r:182, g:25, b:36}</code> <br /> <code>{h:356, s:76, l:41}</code> <br /> <code>&quot;random&quot;</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>lineLinked.opacity</code></td>
-							<td><code>number</code></td>
-							<td><code>0...1</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>lineLinked.width</code></td>
-							<td><code>number</code></td>
-							<td><code>1.5</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.speed</code></td>
-							<td><code>number</code></td>
-							<td><code>4</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.direction</code></td>
-							<td><code>string</code></td>
-							<td><code>&quot;none&quot;</code> <br /> <code>&quot;top&quot;</code> <br /> <code>&quot;top-right&quot;</code> <br /> <code>&quot;right&quot;</code> <br /> <code>&quot;bottom-right&quot;</code> <br /> <code>&quot;bottom&quot;</code> <br /> <code>&quot;bottom-left&quot;</code> <br /> <code>&quot;left&quot;</code> <br /> <code>&quot;top-left&quot;</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.random</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.straight</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.outMode</code></td>
-							<td><code>string</code></td>
-							<td><code>&quot;out&quot;</code><br /> <code>&quot;destroy&quot;</code> <br /> <code>&quot;bounce&quot;</code> <br /> <code>&quot;bounce-vertical&quot;</code> <br /> <code>&quot;bounce-horizontal&quot;</code></td>
-							<td>out of canvas</td>
-						</tr>
-						<tr>
-							<td><code>move.bounce</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td>between particles</td>
-						</tr>
-						<tr>
-							<td><code>move.trail.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.trail.length</code></td>
-							<td><code>number</code></td>
-							<td><code>10</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.trail.fillColor</code></td>
-							<td>HEX (<code>string</code>) <br /> RGB (<code>object</code>) <br /> HSL (<code>object</code>) <br /> random (<code>string</code>)</td>
-							<td><code>&quot;#0d47a1&quot;</code> <br /> <code>{r:182, g:25, b:36}</code> <br /> <code>{h:356, s:76, l:41}</code> <br /> <code>&quot;random&quot;</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.attract.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.attract.rotate.x</code></td>
-							<td><code>number</code></td>
-							<td><code>3000</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.attract.rotate.y</code></td>
-							<td><code>number</code></td>
-							<td><code>1500</code></td>
-							<td></td>
-						</tr>
-				</tbody></table>
-				<a href="#polygon-mask-1" id="polygon-mask-1" style="color: inherit; text-decoration: none;">
-					<h4>Polygon Mask</h4>
-				</a>
-				<table>
-					<thead>
-						<tr>
-							<th>key</th>
-							<th>option type</th>
-							<th>example</th>
-							<th>notes</th>
-						</tr>
-					</thead>
-					<tbody><tr>
-							<td><code>enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>draw.enable</code></td>
-							<td><code>boolean</code></td>
-							<td><code>true</code> / <code>false</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>draw.lineWidth</code></td>
-							<td><code>number</code></td>
-							<td><code>0.5</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>draw.lineColor</code></td>
-							<td>HEX (<code>string</code>) <br /> RGB (<code>object</code>) <br /> HSL (<code>object</code>) <br /> random (<code>string</code>)</td>
-							<td><code>&quot;#0d47a1&quot;</code> <br /> <code>{r:182, g:25, b:36}</code> <br /> <code>{h:356, s:76, l:41}</code> <br /> <code>&quot;random&quot;</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>scale</code></td>
-							<td><code>number</code></td>
-							<td>1</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>type</code></td>
-							<td><code>string</code></td>
-							<td><code>none</code> <br /> <code>inside</code> <br /> <code>outside</code> <br /> <code>inline</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>move.radius</code></td>
-							<td><code>number</code></td>
-							<td><code>10</code></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td><code>url</code></td>
-							<td><code>string</code></td>
-							<td><code>demo/svg/deer.svg</code></td>
-							<td>this file will be downloaded with an ajax request, if it won&#39;t load you have some <strong>XSS</strong> issues</td>
-						</tr>
-				</tbody></table>
+				<p><a href="https://www.jetbrains.com/webstorm/?from=tsParticles">JetBrains WebStorm</a> is used to maintain this project.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -1358,16 +366,55 @@ particles.pause();</code></pre>
 						<span>Externals</span>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_absorber_.html">&quot;<wbr>Classes/<wbr>Absorber&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_canvas_.html">&quot;<wbr>Classes/<wbr>Canvas&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_container_.html">&quot;<wbr>Classes/<wbr>Container&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_emitter_.html">&quot;<wbr>Classes/<wbr>Emitter&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_framemanager_.html">&quot;<wbr>Classes/<wbr>Frame<wbr>Manager&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_mouse_bubbler_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Mouse/<wbr>Bubbler&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_mouse_connecter_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Mouse/<wbr>Connecter&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_mouse_grabber_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Mouse/<wbr>Grabber&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_mouse_repulser_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Mouse/<wbr>Repulser&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_particles_attracter_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Particles/<wbr>Attracter&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_particles_collider_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Particles/<wbr>Collider&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_particles_interactionmanager_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Particles/<wbr>Interaction<wbr>Manager&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_particles_linker_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Particles/<wbr>Linker&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_loader_.html">&quot;<wbr>Classes/<wbr>Loader&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_absorbers_absorber_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Absorbers/<wbr>Absorber&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_absorbers_absorberrandomsize_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Absorbers/<wbr>Absorber<wbr>Random<wbr>Size&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_absorbers_absorbersize_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Absorbers/<wbr>Absorber<wbr>Size&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_background_background_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Background/<wbr>Background&quot;</a>
@@ -1377,6 +424,15 @@ particles.pause();</code></pre>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_backgroundmask_backgroundmaskcover_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Background<wbr>Mask/<wbr>Background<wbr>Mask<wbr>Cover&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_emitters_emitter_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Emitters/<wbr>Emitter&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_emitters_emitterlife_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Emitters/<wbr>Emitter<wbr>Life&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_emitters_emitterrate_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Emitters/<wbr>Emitter<wbr>Rate&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_interactivity_events_clickevent_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Events/<wbr>Click<wbr>Event&quot;</a>
@@ -1433,25 +489,31 @@ particles.pause();</code></pre>
 						<a href="modules/_classes_options_particles_attract_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Attract&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_color_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Color&quot;</a>
+						<a href="modules/_classes_options_particles_collisions_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Collisions&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_particles_density_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Density&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_linelinked_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked&quot;</a>
+						<a href="modules/_classes_options_particles_linelinked_linelinked_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked/<wbr>Line<wbr>Linked&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_linelinkedshadow_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked<wbr>Shadow&quot;</a>
+						<a href="modules/_classes_options_particles_linelinked_linelinkedshadow_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked/<wbr>Line<wbr>Linked<wbr>Shadow&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_particles_move_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Move&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_opacity_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Opacity&quot;</a>
+						<a href="modules/_classes_options_particles_opacity_opacity_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Opacity/<wbr>Opacity&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_opacityanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Opacity<wbr>Animation&quot;</a>
+						<a href="modules/_classes_options_particles_opacity_opacityanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Opacity/<wbr>Opacity<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_opacity_opacityrandom_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Opacity/<wbr>Opacity<wbr>Random&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_optionscolor_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Options<wbr>Color&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_particles_particles_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Particles&quot;</a>
@@ -1460,16 +522,10 @@ particles.pause();</code></pre>
 						<a href="modules/_classes_options_particles_particlesnumber_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Particles<wbr>Number&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_randomopacity_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Random<wbr>Opacity&quot;</a>
+						<a href="modules/_classes_options_particles_rotate_rotate_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Rotate/<wbr>Rotate&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_randomsize_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Random<wbr>Size&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_rotate_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Rotate&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_rotateanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Rotate<wbr>Animation&quot;</a>
+						<a href="modules/_classes_options_particles_rotate_rotateanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Rotate/<wbr>Rotate<wbr>Animation&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_particles_shadow_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shadow&quot;</a>
@@ -1487,16 +543,28 @@ particles.pause();</code></pre>
 						<a href="modules/_classes_options_particles_shape_shape_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shape/<wbr>Shape&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_size_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size&quot;</a>
+						<a href="modules/_classes_options_particles_shape_shapebase_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shape/<wbr>Shape<wbr>Base&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_options_particles_sizeanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size<wbr>Animation&quot;</a>
+						<a href="modules/_classes_options_particles_size_size_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size/<wbr>Size&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_size_sizeanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size/<wbr>Size<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_size_sizerandom_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size/<wbr>Size<wbr>Random&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_particles_stroke_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Stroke&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_particles_trail_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Trail&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_twinkle_twinkle_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Twinkle/<wbr>Twinkle&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_twinkle_twinklevalues_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Twinkle/<wbr>Twinkle<wbr>Values&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_options_polygonmask_draw_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Polygon<wbr>Mask/<wbr>Draw&quot;</a>
@@ -1517,34 +585,7 @@ particles.pause();</code></pre>
 						<a href="modules/_classes_particle_.html">&quot;<wbr>Classes/<wbr>Particle&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_particle_attracter_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Attracter&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_particle_bubbler_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Bubbler&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_particle_collider_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Collider&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_particle_connecter_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Connecter&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_particle_drawer_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Drawer&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_particle_grabber_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Grabber&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_particle_interactionmanager_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Interaction<wbr>Manager&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_particle_linker_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Linker&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_particle_mover_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Mover&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_particle_repulser_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Repulser&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_particle_updater_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Updater&quot;</a>
@@ -1601,10 +642,13 @@ particles.pause();</code></pre>
 						<a href="modules/_classes_utils_presets_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Presets&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_classes_utils_shapeutils_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Shape<wbr>Utils&quot;</a>
+						<a href="modules/_classes_utils_spatialgrid_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Spatial<wbr>Grid&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_classes_utils_utils_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_collisionmode_.html">&quot;<wbr>Enums/<wbr>Collision<wbr>Mode&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_enums_interactivitydetect_.html">&quot;<wbr>Enums/<wbr>Interactivity<wbr>Detect&quot;</a>
@@ -1620,6 +664,9 @@ particles.pause();</code></pre>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_enums_movedirection_.html">&quot;<wbr>Enums/<wbr>Move<wbr>Direction&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_opacityanimationstatus_.html">&quot;<wbr>Enums/<wbr>Opacity<wbr>Animation<wbr>Status&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_enums_outmode_.html">&quot;<wbr>Enums/<wbr>Out<wbr>Mode&quot;</a>
@@ -1643,16 +690,25 @@ particles.pause();</code></pre>
 						<a href="modules/_enums_shapetype_.html">&quot;<wbr>Enums/<wbr>Shape<wbr>Type&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_sizeanimationstatus_.html">&quot;<wbr>Enums/<wbr>Size<wbr>Animation<wbr>Status&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_ibounds_.html">&quot;<wbr>Interfaces/IBounds&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_ibubble_.html">&quot;<wbr>Interfaces/IBubble&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ibubbleparticledata_.html">&quot;<wbr>Interfaces/IBubble<wbr>Particle<wbr>Data&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_ibubblerprocessparam_.html">&quot;<wbr>Interfaces/IBubbler<wbr>Process<wbr>Param&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_ibubblerprocessparamobj_.html">&quot;<wbr>Interfaces/IBubbler<wbr>Process<wbr>Param<wbr>Obj&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_icolor_.html">&quot;<wbr>Interfaces/IColor&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_icontainerinteractivity_.html">&quot;<wbr>Interfaces/IContainer<wbr>Interactivity&quot;</a>
@@ -1706,10 +762,22 @@ particles.pause();</code></pre>
 						<a href="modules/_interfaces_isize_.html">&quot;<wbr>Interfaces/ISize&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_isvgpath_.html">&quot;<wbr>Interfaces/ISvg<wbr>Path&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_ivaluecolor_.html">&quot;<wbr>Interfaces/IValue<wbr>Color&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_ivelocity_.html">&quot;<wbr>Interfaces/IVelocity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_absorbers_iabsorber_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Absorbers/IAbsorber&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_absorbers_iabsorberrandomsize_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Absorbers/IAbsorber<wbr>Random<wbr>Size&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_absorbers_iabsorbersize_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Absorbers/IAbsorber<wbr>Size&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_background_ibackground_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Background/IBackground&quot;</a>
@@ -1719,6 +787,15 @@ particles.pause();</code></pre>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_backgroundmask_ibackgroundmaskcover_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Background<wbr>Mask/IBackground<wbr>Mask<wbr>Cover&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_emitters_iemitter_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Emitters/IEmitter&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_emitters_iemitterlife_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Emitters/IEmitter<wbr>Life&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_emitters_iemitterrate_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Emitters/IEmitter<wbr>Rate&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_ioptionloader_.html">&quot;<wbr>Interfaces/<wbr>Options/IOption<wbr>Loader&quot;</a>
@@ -1778,25 +855,16 @@ particles.pause();</code></pre>
 						<a href="modules/_interfaces_options_particles_iattract_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IAttract&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_icolor_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IColor&quot;</a>
+						<a href="modules/_interfaces_options_particles_icollisions_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/ICollisions&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_particles_idensity_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IDensity&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_ilinelinked_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/ILine<wbr>Linked&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_ilinelinkedshadow_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/ILine<wbr>Linked<wbr>Shadow&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_particles_imove_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IMove&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_iopacity_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IOpacity&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_iopacityanimation_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IOpacity<wbr>Animation&quot;</a>
+						<a href="modules/_interfaces_options_particles_ioptionscolor_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IOptions<wbr>Color&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_particles_iparticles_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IParticles&quot;</a>
@@ -1805,31 +873,34 @@ particles.pause();</code></pre>
 						<a href="modules/_interfaces_options_particles_iparticlesnumber_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IParticles<wbr>Number&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_irandomopacity_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IRandom<wbr>Opacity&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_irandomsize_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IRandom<wbr>Size&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_irotate_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IRotate&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_irotateanimation_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IRotate<wbr>Animation&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_particles_ishadow_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IShadow&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_isize_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/ISize&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_interfaces_options_particles_isizeanimation_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/ISize<wbr>Animation&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_particles_istroke_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IStroke&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_particles_itrail_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/ITrail&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_linelinked_ilinelinked_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked/ILine<wbr>Linked&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_linelinked_ilinelinkedshadow_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked/ILine<wbr>Linked<wbr>Shadow&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_opacity_iopacity_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Opacity/IOpacity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_opacity_iopacityanimation_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Opacity/IOpacity<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_opacity_iopacityrandom_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Opacity/IOpacity<wbr>Random&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_rotate_irotate_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Rotate/IRotate&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_rotate_irotateanimation_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Rotate/IRotate<wbr>Animation&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_particles_shape_icharactershape_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Shape/ICharacter<wbr>Shape&quot;</a>
@@ -1845,6 +916,21 @@ particles.pause();</code></pre>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_particles_shape_ishapevalues_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Shape/IShape<wbr>Values&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_size_isize_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Size/ISize&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_size_isizeanimation_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Size/ISize<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_size_isizerandom_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Size/ISize<wbr>Random&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_twinkle_itwinkle_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Twinkle/ITwinkle&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_twinkle_itwinklevalues_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Twinkle/ITwinkle<wbr>Values&quot;</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
 						<a href="modules/_interfaces_options_polygonmask_ipolygoninline_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Polygon<wbr>Mask/IPolygon<wbr>Inline&quot;</a>
