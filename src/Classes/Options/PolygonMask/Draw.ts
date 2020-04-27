@@ -1,8 +1,7 @@
 import type { IPolygonMaskDraw } from "../../../Interfaces/Options/PolygonMask/IPolygonMaskDraw";
-import type { IPolygonMaskDrawStroke } from "../../../Interfaces/Options/PolygonMask/IPolygonMaskDrawStroke";
 import { PolygonMaskDrawStroke } from "./PolygonMaskDrawStroke";
 import type { RecursivePartial } from "../../../Types/RecursivePartial";
-import type { IOptionsColor } from "../../../Interfaces/Options/Particles/IOptionsColor";
+import { OptionsColor } from "../Particles/OptionsColor";
 
 export class Draw implements IPolygonMaskDraw {
     /**
@@ -22,25 +21,19 @@ export class Draw implements IPolygonMaskDraw {
     /**
      * @deprecated the property lineColor is deprecated, please use the new stroke.color
      */
-    get lineColor(): string | IOptionsColor {
-        return this.stroke.color as IOptionsColor;
+    get lineColor(): string | OptionsColor {
+        return this.stroke.color;
     }
 
     /**
      * @deprecated the property lineColor is deprecated, please use the new stroke.color
      */
-    set lineColor(value: string | IOptionsColor) {
-        const destColor = this.stroke.color as IOptionsColor;
-
-        if (typeof value === "string") {
-            destColor.value = value;
-        } else {
-            destColor.load(value);
-        }
+    set lineColor(value: string | OptionsColor) {
+        this.stroke.color = OptionsColor.create(this.stroke.color, value);
     }
 
     public enable: boolean;
-    public stroke: IPolygonMaskDrawStroke;
+    public stroke: PolygonMaskDrawStroke;
 
     constructor() {
         this.enable = false;

@@ -1,15 +1,14 @@
 import type { IBubble } from "../../../../Interfaces/Options/Interactivity/Modes/IBubble";
 import type { RecursivePartial } from "../../../../Types/RecursivePartial";
-import { IOptionsColor } from "../../../../Interfaces/Options/Particles/IOptionsColor";
 import { OptionsColor } from "../../Particles/OptionsColor";
-import { SingleOrMultiple } from "../../../../Types/SingleOrMultiple";
+import type { SingleOrMultiple } from "../../../../Types/SingleOrMultiple";
 
 export class Bubble implements IBubble {
     public distance: number;
     public duration: number;
     public opacity?: number;
     public size?: number;
-    public color?: SingleOrMultiple<IOptionsColor>;
+    public color?: SingleOrMultiple<OptionsColor>;
 
     constructor() {
         this.distance = 200;
@@ -32,19 +31,13 @@ export class Bubble implements IBubble {
 
             if (data.color !== undefined) {
                 if (data.color instanceof Array) {
-                    this.color = data.color.map((s) => {
-                        const tmp = new OptionsColor();
-
-                        tmp.load(typeof s === "string" ? { value: s } : s);
-
-                        return tmp;
-                    });
+                    this.color = data.color.map((s) => OptionsColor.create(undefined, s));
                 } else {
-                    if (this.color instanceof Array || this.color === undefined) {
+                    if (this.color instanceof Array) {
                         this.color = new OptionsColor();
                     }
 
-                    this.color.load(typeof data.color === "string" ? { value: data.color } : data.color);
+                    this.color = OptionsColor.create(this.color, data.color);
                 }
             }
 

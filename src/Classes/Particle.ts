@@ -22,6 +22,7 @@ import type { IParticles } from "../Interfaces/Options/Particles/IParticles";
 import { Particles } from "./Options/Particles/Particles";
 import { SizeAnimationStatus } from "../Enums/SizeAnimationStatus";
 import { OpacityAnimationStatus } from "../Enums/OpacityAnimationStatus";
+import { Shape } from "./Options/Particles/Shape/Shape";
 
 /**
  * The single particle object
@@ -71,43 +72,53 @@ export class Particle implements IParticle {
         this.links = [];
 
         const options = container.options;
-
         const particlesOptions = new Particles();
 
         particlesOptions.load(options.particles);
 
-        if (emitter?.emitterOptions.particles !== undefined) {
+        if (emitter?.emitterOptions?.particles?.shape !== undefined) {
             const shapeType = emitter.emitterOptions.particles.shape.type;
 
             this.shape = shapeType instanceof Array ? Utils.itemFromArray(shapeType) : shapeType;
 
-            const shapeData = emitter.emitterOptions.particles.shape.options[this.shape];
+            const shapeOptions = new Shape();
 
-            if (shapeData) {
-                this.shapeData = shapeData instanceof Array ? Utils.itemFromArray(shapeData) : shapeData;
+            shapeOptions.load(emitter.emitterOptions.particles.shape);
 
-                this.fill = this.shapeData.fill ?? this.fill;
-                this.close = this.shapeData.close ?? this.close;
+            if (this.shape !== undefined) {
+                const shapeData = shapeOptions.options[this.shape];
+
+                if (shapeData !== undefined) {
+                    this.shapeData = Utils.deepExtend({}, shapeData instanceof Array ?
+                        Utils.itemFromArray(shapeData) :
+                        shapeData);
+
+                    this.fill = this.shapeData?.fill ?? this.fill;
+                    this.close = this.shapeData?.close ?? this.close;
+                }
             }
-
-            particlesOptions.load(this.shapeData?.particles);
-            particlesOptions.load(emitter.emitterOptions.particles);
         } else {
-            const shapeType = options.particles.shape.type;
+            const shapeType = particlesOptions.shape.type;
 
             this.shape = shapeType instanceof Array ? Utils.itemFromArray(shapeType) : shapeType;
 
-            const shapeData = options.particles.shape.options[this.shape];
+            const shapeData = particlesOptions.shape.options[this.shape];
 
             if (shapeData) {
-                this.shapeData = shapeData instanceof Array ? Utils.itemFromArray(shapeData) : shapeData;
+                this.shapeData = Utils.deepExtend({}, shapeData instanceof Array ?
+                    Utils.itemFromArray(shapeData) :
+                    shapeData);
 
-                this.fill = this.shapeData.fill ?? this.fill;
-                this.close = this.shapeData.close ?? this.close;
+                this.fill = this.shapeData?.fill ?? this.fill;
+                this.close = this.shapeData?.close ?? this.close;
             }
-
-            particlesOptions.load(this.shapeData?.particles);
         }
+
+        if (emitter?.emitterOptions?.particles !== undefined) {
+            particlesOptions.load(emitter.emitterOptions.particles);
+        }
+
+        particlesOptions.load(this.shapeData?.particles);
 
         this.particlesOptions = particlesOptions;
 
@@ -212,7 +223,7 @@ export class Particle implements IParticle {
         };
 
         /* if shape is image */
-        if (this.shape === ShapeType.image) {
+        if (this.shape === ShapeType.image || this.shape === ShapeType.images) {
             const shape = this.particlesOptions.shape;
             const index = Utils.arrayRandomIndex(container.images);
             const image = container.images[index];

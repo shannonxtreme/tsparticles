@@ -1,10 +1,9 @@
 import type { IStroke } from "../../../Interfaces/Options/Particles/IStroke";
 import type { RecursivePartial } from "../../../Types/RecursivePartial";
-import type { IOptionsColor } from "../../../Interfaces/Options/Particles/IOptionsColor";
 import { OptionsColor } from "./OptionsColor";
 
 export class Stroke implements IStroke {
-    public color: IOptionsColor;
+    public color: OptionsColor;
     public width: number;
     public opacity: number;
 
@@ -18,7 +17,7 @@ export class Stroke implements IStroke {
 
     public load(data?: RecursivePartial<IStroke>): void {
         if (data !== undefined) {
-            this.color.load(typeof data.color === "string" ? { value: data.color } : data.color);
+            this.color = OptionsColor.create(this.color, data.color);
 
             if (data.width !== undefined) {
                 this.width = data.width;

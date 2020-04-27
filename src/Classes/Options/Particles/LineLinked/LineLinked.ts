@@ -1,18 +1,16 @@
 import type { ILineLinked } from "../../../../Interfaces/Options/Particles/LineLinked/ILineLinked";
-import type { ILineLinkedShadow } from "../../../../Interfaces/Options/Particles/LineLinked/ILineLinkedShadow";
 import { LineLinkedShadow } from "./LineLinkedShadow";
 import type { RecursivePartial } from "../../../../Types/RecursivePartial";
-import type { IOptionsColor } from "../../../../Interfaces/Options/Particles/IOptionsColor";
 import { OptionsColor } from "../OptionsColor";
 
 export class LineLinked implements ILineLinked {
     public blink: boolean;
-    public color: IOptionsColor;
+    public color: OptionsColor;
     public consent: boolean;
     public distance: number;
     public enable: boolean;
     public opacity: number;
-    public shadow: ILineLinkedShadow;
+    public shadow: LineLinkedShadow;
     public width: number;
 
     constructor() {
@@ -32,7 +30,7 @@ export class LineLinked implements ILineLinked {
                 this.blink = data.blink;
             }
 
-            this.color.load(typeof data.color === "string" ? { value: data.color } : data.color);
+            this.color = OptionsColor.create(this.color, data.color);
 
             if (data.consent !== undefined) {
                 this.consent = data.consent;

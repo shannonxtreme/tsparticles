@@ -2,14 +2,12 @@ import type { IShape } from "../../../../Interfaces/Options/Particles/Shape/ISha
 import { ShapeType } from "../../../../Enums/ShapeType";
 import { ImageShape } from "./ImageShape";
 import { PolygonShape } from "./PolygonShape";
-import type { IImageShape } from "../../../../Interfaces/Options/Particles/Shape/IImageShape";
-import type { ICharacterShape } from "../../../../Interfaces/Options/Particles/Shape/ICharacterShape";
-import type { IPolygonShape } from "../../../../Interfaces/Options/Particles/Shape/IPolygonShape";
-import type { IStroke } from "../../../../Interfaces/Options/Particles/IStroke";
 import type { RecursivePartial } from "../../../../Types/RecursivePartial";
 import type { SingleOrMultiple } from "../../../../Types/SingleOrMultiple";
 import { ShapeData } from "../../../../Types/ShapeData";
 import { CharacterShape } from "./CharacterShape";
+import { Stroke } from "../Stroke";
+import { Utils } from "../../../Utils/Utils";
 
 export class Shape implements IShape {
     /**
@@ -30,41 +28,41 @@ export class Shape implements IShape {
     /**
      * @deprecated the property images is deprecated, please use the image property, it works with one and many
      */
-    get images(): IImageShape[] {
+    get images(): ImageShape[] {
         return this.image instanceof Array ? this.image : [ this.image ];
     }
 
     /**
      * @deprecated the property images is deprecated, please use the image property, it works with one and many
      */
-    set images(value: IImageShape[]) {
+    set images(value: ImageShape[]) {
         this.image = value;
     }
 
     /**
      * @deprecated this property was moved to particles section
      */
-    get stroke(): SingleOrMultiple<IStroke> {
+    get stroke(): SingleOrMultiple<Stroke> {
         return [];
     }
 
     /**
      * @deprecated this property was moved to particles section
      */
-    set stroke(value: SingleOrMultiple<IStroke>) {
+    set stroke(_value: SingleOrMultiple<Stroke>) {
     }
 
     /**
      * @deprecated this property was integrated in custom shape management
      */
-    get character(): SingleOrMultiple<ICharacterShape> {
-        return (this.options[ShapeType.character] ?? this.options[ShapeType.char]) as SingleOrMultiple<ICharacterShape>;
+    get character(): SingleOrMultiple<CharacterShape> {
+        return (this.options[ShapeType.character] ?? this.options[ShapeType.char]) as SingleOrMultiple<CharacterShape>;
     }
 
     /**
      * @deprecated this property was integrated in custom shape management
      */
-    set character(value: SingleOrMultiple<ICharacterShape>) {
+    set character(value: SingleOrMultiple<CharacterShape>) {
         this.options[ShapeType.character] = value;
         this.options[ShapeType.char] = value;
     }
@@ -72,19 +70,19 @@ export class Shape implements IShape {
     /**
      * @deprecated this property was integrated in custom shape management
      */
-    get polygon(): SingleOrMultiple<IPolygonShape> {
-        return (this.options[ShapeType.polygon] ?? this.options[ShapeType.star]) as SingleOrMultiple<IPolygonShape>;
+    get polygon(): SingleOrMultiple<PolygonShape> {
+        return (this.options[ShapeType.polygon] ?? this.options[ShapeType.star]) as SingleOrMultiple<PolygonShape>;
     }
 
     /**
      * @deprecated this property was integrated in custom shape management
      */
-    set polygon(value: SingleOrMultiple<IPolygonShape>) {
+    set polygon(value: SingleOrMultiple<PolygonShape>) {
         this.options[ShapeType.polygon] = value;
         this.options[ShapeType.star] = value;
     }
 
-    public image: SingleOrMultiple<IImageShape>;
+    public image: SingleOrMultiple<ImageShape>;
     public type: SingleOrMultiple<ShapeType | string>;
     public options: ShapeData;
 
@@ -103,31 +101,41 @@ export class Shape implements IShape {
                 for (const shape in options) {
                     const item = options[shape];
                     if (item !== undefined) {
-                        if (item instanceof Array) {
-                            this.options[shape] = item.filter((t) => t !== undefined).map((t) => {
-                                return t!;
-                            });
-                        } else {
-                            this.options[shape] = item;
-                        }
+                        this.options[shape] = Utils.deepExtend(this.options[shape] ?? {}, item);
                     }
                 }
             }
 
             if (data.character !== undefined) {
                 const item = data.character;
+
                 if (item !== undefined) {
                     if (item instanceof Array) {
-                        this.options[ShapeType.character] = item.filter(t => t !== undefined).map((s) => {
-                            return s!;
-                        });
+                        if (this.options[ShapeType.character] instanceof Array) {
+                            this.options[ShapeType.character] = Utils.deepExtend(
+                                this.options[ShapeType.character] ?? [],
+                                item);
 
-                        this.options[ShapeType.char] = item.filter(t => t !== undefined).map((s) => {
-                            return s!;
-                        });
+                            this.options[ShapeType.char] = Utils.deepExtend(this.options[ShapeType.char] ?? [], item);
+                        } else {
+                            this.options[ShapeType.character] = Utils.deepExtend([],
+                                item);
+
+                            this.options[ShapeType.char] = Utils.deepExtend([], item);
+                        }
                     } else {
-                        this.options[ShapeType.character] = item;
-                        this.options[ShapeType.char] = item;
+                        if (this.options[ShapeType.character] instanceof Array) {
+                            this.options[ShapeType.character] = Utils.deepExtend({},
+                                item);
+
+                            this.options[ShapeType.char] = Utils.deepExtend({}, item);
+                        } else {
+                            this.options[ShapeType.character] = Utils.deepExtend(
+                                this.options[ShapeType.character] ?? [],
+                                item);
+
+                            this.options[ShapeType.char] = Utils.deepExtend(this.options[ShapeType.char] ?? [], item);
+                        }
                     }
                 }
             }
@@ -136,16 +144,31 @@ export class Shape implements IShape {
                 const item = data.polygon;
                 if (item !== undefined) {
                     if (item instanceof Array) {
-                        this.options[ShapeType.polygon] = item.filter(t => t !== undefined).map((s) => {
-                            return s!;
-                        });
+                        if (this.options[ShapeType.polygon] instanceof Array) {
+                            this.options[ShapeType.polygon] = Utils.deepExtend(
+                                this.options[ShapeType.polygon] ?? [],
+                                item);
 
-                        this.options[ShapeType.star] = item.filter(t => t !== undefined).map((s) => {
-                            return s!;
-                        });
+                            this.options[ShapeType.star] = Utils.deepExtend(this.options[ShapeType.star] ?? [], item);
+                        } else {
+                            this.options[ShapeType.polygon] = Utils.deepExtend([],
+                                item);
+
+                            this.options[ShapeType.star] = Utils.deepExtend([], item);
+                        }
                     } else {
-                        this.options[ShapeType.polygon] = item;
-                        this.options[ShapeType.star] = item;
+                        if (this.options[ShapeType.polygon] instanceof Array) {
+                            this.options[ShapeType.polygon] = Utils.deepExtend({},
+                                item);
+
+                            this.options[ShapeType.star] = Utils.deepExtend({}, item);
+                        } else {
+                            this.options[ShapeType.polygon] = Utils.deepExtend(
+                                this.options[ShapeType.polygon] ?? [],
+                                item);
+
+                            this.options[ShapeType.star] = Utils.deepExtend(this.options[ShapeType.star] ?? [], item);
+                        }
                     }
                 }
             }
