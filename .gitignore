@@ -358,4 +358,3 @@ lib/
 build/
 
 .idea/
-typedoc/themes/particles/assets/js/tsparticles.min.js
