@@ -92,7 +92,6 @@
       "./src/index.ts"
     ],
     "mode": "library",
-    "readme": "./_README.md",
     "out": "docs",
     "theme": "./typedoc/themes/particles"
   }
