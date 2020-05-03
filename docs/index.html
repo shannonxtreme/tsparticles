@@ -1,0 +1,1165 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>tsparticles</title>
+	<meta name="description" content="Documentation for tsparticles">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/particles.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">tsparticles</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>tsparticles</h1>
+		</div>
+	</div>
+</header>
+<div id="tsparticles"></div>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p align="center">
+					<a href="https://particles.matteobruni.it/">
+						<img src="https://particles.matteobruni.it/images/icons/rounded/tsParticles-96.png" alt="tsParticles" />
+					</a>
+				</p>
+				<a href="#tsparticles---typescript-particles---" id="tsparticles---typescript-particles---" style="color: inherit; text-decoration: none;">
+					<h1>tsParticles - TypeScript Particles <a href="https://www.jsdelivr.com/package/npm/tsparticles"><img src="https://data.jsdelivr.com/v1/package/npm/tsparticles/badge" alt="jsDelivr"></a> <a href="https://cdnjs.com/libraries/tsparticles"><img src="https://img.shields.io/cdnjs/v/tsparticles" alt="Cdnjs"></a> <a href="https://www.npmjs.com/package/tsparticles"><img src="https://badge.fury.io/js/tsparticles.svg" alt="npmjs"></a></h1>
+				</a>
+				<p><strong>A lightweight TypeScript library for creating particles. Dependency free (*) and browser ready!</strong></p>
+				<p><em><a href="https://github.com/VincentGarreau/particles.js">Particles.js</a> converted in TypeScript, dependency free (*), improved with new cool 😎 features and various bugs fixed and <strong>it&#39;s currently under development</strong>!</em></p>
+				<a href="#do-you-want-to-use-it-on-your-website" id="do-you-want-to-use-it-on-your-website" style="color: inherit; text-decoration: none;">
+					<h2>Do you want to use it on your website?</h2>
+				</a>
+				<p><strong>This library is available on the two most popular CDNs and it&#39;s easy and ready to use, if you were using particles.js it&#39;s even easier</strong>.</p>
+				<p>You&#39;ll find the instructions <a href="https://github.com/matteobruni/tsparticles/blob/master/README.md#library-installation">below</a>, with all the links you need, and <em>don&#39;t be scared by <strong>TypeScript</strong>, it&#39;s just the source language</em>.</p>
+				<p><strong>The output files are just vanilla JavaScript</strong>. 🤩</p>
+				<p>CDNs and <code>npm</code> have all the sources you need in <strong>vanilla Javascript</strong>, a bundle browser ready (tsparticles.min.js) and all files splitted for <code>import</code> syntax.</p>
+				<p><strong>If you are still interested</strong> some lines below there are some instructions for migrating from the old particles.js library.</p>
+				<a href="#want-to-see-it-in-action-and-try-it" id="want-to-see-it-in-action-and-try-it" style="color: inherit; text-decoration: none;">
+					<h3>Want to see it in action and try it?</h3>
+				</a>
+				<p>I&#39;ve created a tsParticles collection on <a href="https://codepen.io/collection/DPOage">CodePen</a> 😮 or you can checkout my <a href="https://codepen.io/matteobruni">profile</a></p>
+				<p>Otherwise there&#39;s the demo page link below. Just click/tap the Coronavirus below, don&#39;t be scared. <strong>It&#39;s safe</strong> 😷.</p>
+				<p>[<img src="https://media.giphy.com/media/fsVN1ZHksgBIXNIbr1/giphy.gif" alt="tsParticles demo">](<a href="https://particles.matteobruni.it/#virus">https://particles.matteobruni.it/#virus</a></p>
+				<p>Want to see ever more demos? Clone the repository on your computer and follow these instructions</p>
+				<pre><code class="language-shell">npm install &amp;&amp; npm start</code></pre>
+				<p><strong>Boom! 💥</strong> <a href="http://localhost:3000">http://localhost:3000</a> and you can checkout other demos, <em>if you are brave enough</em> you can switch to the <code>dev</code> branch so you can try the features under development.</p>
+				<a href="#dependencies" id="dependencies" style="color: inherit; text-decoration: none;">
+					<h3>Dependencies</h3>
+				</a>
+				<p>You may have notices the * near dependency free. Well almost all features works without any dependency, but... Well there&#39;s a but. The <strong>Polygon Mask</strong> feature requires <code>pathseg</code> for some browsers to work fine, and obviously the Icon Fonts (like <code>FontAwesome</code>) must be included in your page.</p>
+				<hr>
+				<a href="#migrating-from-particlesjs" id="migrating-from-particlesjs" style="color: inherit; text-decoration: none;">
+					<h2>Migrating from Particles.js</h2>
+				</a>
+				<p><strong>tsParticles</strong> are fully compatible with the <em>particles.js</em> configuration.</p>
+				<p>Seriously, you just need to change the script source et-voilà, <strong>you&#39;re ready</strong> 🧙!</p>
+				<p>You can read more <strong><a href="https://dev.to/matteobruni/migrating-from-particles-js-to-tsparticles-2a6m">here</a></strong></p>
+				<p>Want to know 5 reasons to do the switch? <a href="https://dev.to/matteobruni/5-reasons-to-use-tsparticles-and-not-particles-js-1gbe">Read here</a></p>
+				<p><em>Below you can find all the information you need to install tsParticles and its new syntax.</em></p>
+				<hr>
+				<a href="#pluginscustomizations" id="pluginscustomizations" style="color: inherit; text-decoration: none;">
+					<h2>Plugins/Customizations</h2>
+				</a>
+				<p>tsParticles now supports some customizations 🥳.</p>
+				<p><strong>NOW YOU CAN CREATE YOUR OWN SHAPES OR PRESETS</strong></p>
+				<p><em>Read more <a href="https://github.com/matteobruni/tsparticles/wiki/Create-a-tsParticles-Plugin">here</a>...</em></p>
+				<hr>
+				<a href="#general-informations" id="general-informations" style="color: inherit; text-decoration: none;">
+					<h2>General Informations</h2>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th><code>master</code></th>
+							<th><code>staging</code></th>
+							<th><code>dev</code></th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><a href="https://dev.azure.com/hollowmatt/particles.ts/_build/latest?definitionId=11&amp;branchName=master"><img src="https://dev.azure.com/hollowmatt/particles.ts/_apis/build/status/matteobruni.tsparticles?branchName=master" alt="Master Build Status"></a></td>
+							<td><a href="https://dev.azure.com/hollowmatt/particles.ts/_build/latest?definitionId=11&amp;branchName=staging"><img src="https://dev.azure.com/hollowmatt/particles.ts/_apis/build/status/matteobruni.tsparticles?branchName=staging" alt="Staging Build Status"></a></td>
+							<td><a href="https://dev.azure.com/hollowmatt/particles.ts/_build/latest?definitionId=11&amp;branchName=dev"><img src="https://dev.azure.com/hollowmatt/particles.ts/_apis/build/status/matteobruni.tsparticles?branchName=dev" alt="Dev Build Status"></a></td>
+						</tr>
+				</tbody></table>
+				<p><a href="https://www.codefactor.io/repository/github/matteobruni/tsparticles"><img src="https://www.codefactor.io/repository/github/matteobruni/tsparticles/badge" alt="CodeFactor"></a>
+				<a href="https://www.codacy.com/manual/ar3s/tsparticles?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=matteobruni/tsparticles&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/b983aaf3461a4c48b1e2eecce1ff1d74" alt="Codacy Badge"></a></p>
+				<hr>
+				<a href="#social" id="social" style="color: inherit; text-decoration: none;">
+					<h2>Social</h2>
+				</a>
+				<a href="#slack" id="slack" style="color: inherit; text-decoration: none;">
+					<h3>Slack</h3>
+				</a>
+				<p><a href="https://join.slack.com/t/tsparticles/shared_invite/enQtOTcxNTQxNjQ4NzkxLWE2MTZhZWExMWRmOWI5MTMxNjczOGE1Yjk0MjViYjdkYTUzODM3OTc5MGQ5MjFlODc4MzE0N2Q1OWQxZDc1YzI"><img src="https://cdn.matteobruni.it/images/slack.png" alt="Slack"></a></p>
+				<a href="#product-hunt" id="product-hunt" style="color: inherit; text-decoration: none;">
+					<h3>Product Hunt</h3>
+				</a>
+				<p><a href="https://www.producthunt.com/posts/tsparticles?utm_source=badge-featured&amp;utm_medium=badge&amp;utm_souce=badge-tsparticles%22"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=186113&theme=light" alt="tsParticles - A lightweight TypeScript library for creating particles | Product Hunt Embed"></a></p>
+				<hr>
+				<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
+					<h3>API Docs</h3>
+				</a>
+				<p>Documentation and Development references <a href="https://particles.matteobruni.it/docs/">here</a> 📖</p>
+				<hr>
+				<a href="#library-installation" id="library-installation" style="color: inherit; text-decoration: none;">
+					<h2><strong><em>Library installation</em></strong></h2>
+				</a>
+				<a href="#hosting--cdn" id="hosting--cdn" style="color: inherit; text-decoration: none;">
+					<h3><strong><em>Hosting / CDN</em></strong></h3>
+				</a>
+				<p><strong><em>Please use this hosts or your own to load tsParticles on your projects</em></strong></p>
+				<a href="#jsdelivr" id="jsdelivr" style="color: inherit; text-decoration: none;">
+					<h4>jsDelivr</h4>
+				</a>
+				<p><a href="https://www.jsdelivr.com/package/npm/tsparticles"><img src="https://data.jsdelivr.com/v1/package/npm/tsparticles/badge" alt="jsDelivr"></a></p>
+				<a href="#cdnjs" id="cdnjs" style="color: inherit; text-decoration: none;">
+					<h4>cdnjs</h4>
+				</a>
+				<p><a href="https://cdnjs.com/libraries/tsparticles"><img src="https://img.shields.io/cdnjs/v/tsparticles" alt="Cdnjs"></a></p>
+				<a href="#unpkg" id="unpkg" style="color: inherit; text-decoration: none;">
+					<h4>unpkg</h4>
+				</a>
+				<p><a href="https://unpkg.com/browse/tsparticles@1.12.10/dist/">https://unpkg.com/browse/tsparticles@1.12.10/dist/</a></p>
+				<hr>
+				<a href="#npm" id="npm" style="color: inherit; text-decoration: none;">
+					<h3><strong><em>npm</em></strong></h3>
+				</a>
+				<p><a href="https://www.npmjs.com/package/tsparticles"><img src="https://badge.fury.io/js/tsparticles.svg" alt="npmjs"></a> <a href="https://www.npmjs.com/package/tsparticles"><img src="https://img.shields.io/npm/dt/tsparticles" alt="npmjs"></a></p>
+				<pre><code class="language-shell">npm install tsparticles</code></pre>
+				<a href="#yarn" id="yarn" style="color: inherit; text-decoration: none;">
+					<h3><strong><em>yarn</em></strong></h3>
+				</a>
+				<pre><code class="language-shell">yarn add tsparticles</code></pre>
+				<a href="#import-and-require" id="import-and-require" style="color: inherit; text-decoration: none;">
+					<h4>Import and require</h4>
+				</a>
+				<p>Starting from version 1.12.11 <code>import</code> and <code>require</code> can be used to import <code>tsParticles</code>.</p>
+				<p>Now you can write something like this</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> tsParticles = <span class="hljs-built_in">require</span>(<span class="hljs-string">"tsparticles"</span>);
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">import</span> { tsParticles } <span class="hljs-keyword">from</span> <span class="hljs-string">"tsparticles"</span>;</code></pre>
+				<p>the imported <code>tsParticles</code> is the same instance you have including the script.</p>
+				<hr>
+				<a href="#nuget" id="nuget" style="color: inherit; text-decoration: none;">
+					<h3><strong><em>NuGet</em></strong></h3>
+				</a>
+				<p><a href="https://www.nuget.org/packages/tsParticles/"><img src="https://img.shields.io/nuget/v/tsParticles" alt="Nuget"></a></p>
+				<hr>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h3><strong><em>Usage</em></strong></h3>
+				</a>
+				<p>Load tsParticles and configure the particles:</p>
+				<p><a href="https://particles.matteobruni.it"><img src="https://media.giphy.com/media/ftHwBpp3b0qNyCXRuu/giphy.gif" alt="tsParticles demo"></a></p>
+				<p><strong>index.html</strong></p>
+				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tsparticles"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"tsparticles.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+				<p><strong>app.js</strong></p>
+				<pre><code class="language-javascript"><span class="hljs-comment">// @path-json can be an object or an array, the first will be loaded directly, the object from the array will be random selected</span>
+<span class="hljs-comment">/* tsParticles.loadJSON(@dom-id, @path-json, @callback (optional)); */</span>
+tsParticles
+  .loadJSON(<span class="hljs-string">"tsparticles"</span>, <span class="hljs-string">"presets/default.json"</span>)
+  .then(<span class="hljs-function">(<span class="hljs-params">container</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"callback - tsparticles config loaded"</span>);
+  })
+  .catch(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.error(error);
+  });
+
+<span class="hljs-comment">//or</span>
+
+<span class="hljs-comment">/* tsParticles.load(@dom-id, @options); */</span>
+tsParticles.load(<span class="hljs-string">"tsparticles"</span>, {
+  <span class="hljs-comment">/* options here */</span>
+});
+
+<span class="hljs-comment">//or</span>
+
+<span class="hljs-comment">/* tsParticles.loadFromArray(@dom-id, @options, @index (optional)); */</span>
+tsParticles.loadFromArray(<span class="hljs-string">"tsparticles"</span>, [
+  {
+    <span class="hljs-comment">/* options here */</span>
+  },
+  {
+    <span class="hljs-comment">/* other options here */</span>
+  },
+]); <span class="hljs-comment">//random object</span>
+tsParticles.loadFromArray(
+  <span class="hljs-string">"tsparticles"</span>,
+  [
+    {
+      <span class="hljs-comment">/* options here */</span>
+    },
+    {
+      <span class="hljs-comment">/* other options here */</span>
+    },
+  ],
+  <span class="hljs-number">1</span>
+); <span class="hljs-comment">//the second one</span>
+<span class="hljs-comment">// Important! If the index is not in range 0...array.length, the index will be ignored.</span>
+
+<span class="hljs-comment">// after initialization this can be used.</span>
+
+<span class="hljs-comment">/* tsParticles.setOnClickHandler(@callback); */</span>
+<span class="hljs-comment">/* this will be fired from all particles loaded */</span>
+tsParticles.setOnClickHandler(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
+  <span class="hljs-comment">/* custom on click handler */</span>
+});
+
+<span class="hljs-comment">// now you can control the animations too, it's possible to pause and resume the animations</span>
+<span class="hljs-comment">// these methods don't change the config so you're safe with all your configurations</span>
+<span class="hljs-comment">// domItem(0) returns the first tsParticles instance loaded in the dom</span>
+<span class="hljs-keyword">const</span> particles = tsParticles.domItem(<span class="hljs-number">0</span>);
+<span class="hljs-comment">// play will start the animations, if the move is not enabled it won't enable it, it just updates the frame</span>
+particles.play();
+<span class="hljs-comment">// pause will stop the animations</span>
+particles.pause();</code></pre>
+				<a href="#import-and-require-1" id="import-and-require-1" style="color: inherit; text-decoration: none;">
+					<h4>Import and require</h4>
+				</a>
+				<p>Starting from version 1.12.7 <code>import</code> and <code>require</code> can be used to import <code>tsParticles</code>.</p>
+				<p>Now you can write something like this</p>
+				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> tsParticles = <span class="hljs-built_in">require</span>(<span class="hljs-string">"tsparticles"</span>);
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">import</span> { tsParticles } <span class="hljs-keyword">from</span> <span class="hljs-string">"tsparticles"</span>;</code></pre>
+				<a href="#reactjs" id="reactjs" style="color: inherit; text-decoration: none;">
+					<h3>React.js</h3>
+				</a>
+				<p><strong>tsParticles ❤️ react-particles-js</strong></p>
+				<p>Starting from <a href="https://github.com/Wufe/react-particles-js">react-particles-js</a> version 3.0.0 it has added tsParticles as a dependency.</p>
+				<p>You can follow the instructions <a href="https://github.com/Wufe/react-particles-js/blob/master/README.md">here</a> to install <code>react-particles-js</code> and use all the configurations described in this readme to configure the particles.</p>
+				<hr>
+				<a href="#demo--generator" id="demo--generator" style="color: inherit; text-decoration: none;">
+					<h3><strong><em>Demo / Generator</em></strong></h3>
+				</a>
+				<p><a href="https://particles.matteobruni.it/">https://particles.matteobruni.it/</a></p>
+				<p><a href="https://particles.matteobruni.it/"><img src="https://particles.matteobruni.it/images/demo.png?v=1.8.1" alt="Particles demo"></a></p>
+				<hr>
+				<a href="#characters-as-particles" id="characters-as-particles" style="color: inherit; text-decoration: none;">
+					<h4>Characters as particles</h4>
+				</a>
+				<p><a href="https://particles.matteobruni.it/#chars"><img src="https://media.giphy.com/media/JsssOXz72bM6jGEZ0s/giphy.gif" alt="Particles chars demo"></a></p>
+				<hr>
+				<a href="#mouse-hover-connections" id="mouse-hover-connections" style="color: inherit; text-decoration: none;">
+					<h4>Mouse hover connections</h4>
+				</a>
+				<p><a href="https://particles.matteobruni.it/#connect"><img src="https://media.giphy.com/media/XzvZThpVbxHxMYz5xt/giphy.gif" alt="Particles mouse connections demo"></a></p>
+				<hr>
+				<a href="#polygon-mask" id="polygon-mask" style="color: inherit; text-decoration: none;">
+					<h4>Polygon mask</h4>
+				</a>
+				<p><a href="https://particles.matteobruni.it/#mask"><img src="https://media.giphy.com/media/lNRfiSgaMFbL4FMhW6/giphy.gif" alt="tsParticles Polygon Mask demo"></a></p>
+				<hr>
+				<a href="#animated-stars" id="animated-stars" style="color: inherit; text-decoration: none;">
+					<h4>Animated stars</h4>
+				</a>
+				<p><a href="https://particles.matteobruni.it/#nasa"><img src="https://media.giphy.com/media/cLqGsnh7FKRVMgPIWE/giphy.gif" alt="Particles NASA demo"></a></p>
+				<hr>
+				<a href="#nyan-cat-flying-on-scrolling-stars" id="nyan-cat-flying-on-scrolling-stars" style="color: inherit; text-decoration: none;">
+					<h4>Nyan cat flying on scrolling stars</h4>
+				</a>
+				<p><a href="https://particles.matteobruni.it/#nyancat2"><img src="https://media.giphy.com/media/LpX2oNc9ZMgIhIXQL9/giphy.gif" alt="Particles Nyan Cat demo"></a></p>
+				<hr>
+				<a href="#snow-particles" id="snow-particles" style="color: inherit; text-decoration: none;">
+					<h4>Snow particles</h4>
+				</a>
+				<p><a href="https://particles.matteobruni.it/#snow"><img src="https://media.giphy.com/media/gihwUFbmiubbkdzEMX/giphy.gif" alt="tsParticles Snow demo"></a></p>
+				<hr>
+				<a href="#background-mask-particles" id="background-mask-particles" style="color: inherit; text-decoration: none;">
+					<h4>Background Mask particles</h4>
+				</a>
+				<p><a href="https://particles.matteobruni.it/#background"><img src="https://media.giphy.com/media/dWraWgqInWFGWiOyRu/giphy.gif" alt="tsParticles Background Mask demo"></a></p>
+				<hr>
+				<a href="#covid-19-sars-cov-2-particles" id="covid-19-sars-cov-2-particles" style="color: inherit; text-decoration: none;">
+					<h4>COVID-19 SARS-CoV-2 particles</h4>
+				</a>
+				<p><a href="https://particles.matteobruni.it/#virus"><img src="https://media.giphy.com/media/fsVN1ZHksgBIXNIbr1/giphy.gif" alt="tsParticles COVID-19 demo"></a></p>
+				<p><em>Don&#39;t click! DON&#39;T CLICK! OH NO IT&#39;S SPREADING!!!!</em></p>
+				<hr>
+				<p><strong>particles.json</strong></p>
+				<p>You can find a sample config <a href="https://github.com/matteobruni/tsparticles/wiki/tsParticles-Sample-Config">here</a> 📖</p>
+				<hr>
+				<a href="#options" id="options" style="color: inherit; text-decoration: none;">
+					<h3><strong><em>Options</em></strong></h3>
+				</a>
+				<p>You can find all options available <a href="https://github.com/matteobruni/tsparticles/wiki/tsParticles-Options">here</a> 📖</p>
+				<hr>
+				<p>
+					<a href="https://www.jetbrains.com/?from=tsParticles">
+						<img src="https://cdn.matteobruni.it/images/jetbrains-logos/jetbrains-variant-4.png" height="150" alt="JetBrains" />
+					</a>
+					<a href="https://www.jetbrains.com/webstorm/?from=tsParticles">
+						<img src="https://cdn.matteobruni.it/images/jetbrains-logos/webstorm_logos/logo.png" height="150" alt="JetBrains" />
+					</a>
+				</p>
+				<a href="#huge-thanks-to-jetbrains-for-the-2020-open-source-license" id="huge-thanks-to-jetbrains-for-the-2020-open-source-license" style="color: inherit; text-decoration: none;">
+					<h3>Huge thanks to <a href="https://www.jetbrains.com/?from=tsParticles">JetBrains</a> for the 2020 Open Source License!</h3>
+				</a>
+				<p><a href="https://www.jetbrains.com/webstorm/?from=tsParticles">JetBrains WebStorm</a> is used to maintain this project.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Internals</span>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_absorber_.html">&quot;<wbr>Classes/<wbr>Absorber&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_canvas_.html">&quot;<wbr>Classes/<wbr>Canvas&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_container_.html">&quot;<wbr>Classes/<wbr>Container&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_emitter_.html">&quot;<wbr>Classes/<wbr>Emitter&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_framemanager_.html">&quot;<wbr>Classes/<wbr>Frame<wbr>Manager&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_mouse_bubbler_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Mouse/<wbr>Bubbler&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_mouse_connector_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Mouse/<wbr>Connector&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_mouse_grabber_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Mouse/<wbr>Grabber&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_mouse_repulser_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Mouse/<wbr>Repulser&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_particles_attractor_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Particles/<wbr>Attractor&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_particles_collider_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Particles/<wbr>Collider&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_particles_interactionmanager_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Particles/<wbr>Interaction<wbr>Manager&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_interactions_particles_linker_.html">&quot;<wbr>Classes/<wbr>Interactions/<wbr>Particles/<wbr>Linker&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_loader_.html">&quot;<wbr>Classes/<wbr>Loader&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_absorbers_absorber_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Absorbers/<wbr>Absorber&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_absorbers_absorberrandomsize_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Absorbers/<wbr>Absorber<wbr>Random<wbr>Size&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_absorbers_absorbersize_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Absorbers/<wbr>Absorber<wbr>Size&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_background_background_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Background/<wbr>Background&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_backgroundmask_backgroundmask_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Background<wbr>Mask/<wbr>Background<wbr>Mask&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_backgroundmask_backgroundmaskcover_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Background<wbr>Mask/<wbr>Background<wbr>Mask<wbr>Cover&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_emitters_emitter_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Emitters/<wbr>Emitter&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_emitters_emitterlife_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Emitters/<wbr>Emitter<wbr>Life&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_emitters_emitterrate_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Emitters/<wbr>Emitter<wbr>Rate&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_events_clickevent_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Events/<wbr>Click<wbr>Event&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_events_divevent_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Events/<wbr>Div<wbr>Event&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_events_events_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Events/<wbr>Events&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_events_hoverevent_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Events/<wbr>Hover<wbr>Event&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_events_parallax_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Events/<wbr>Parallax&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_interactivity_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Interactivity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_bubble_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Bubble&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_connect_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Connect&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_connectlinelinked_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Connect<wbr>Line<wbr>Linked&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_grab_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Grab&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_grablinelinked_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Grab<wbr>Line<wbr>Linked&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_modes_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Modes&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_push_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Push&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_remove_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Remove&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_repulse_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Repulse&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_interactivity_modes_slow_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Interactivity/<wbr>Modes/<wbr>Slow&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_options_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Options&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_attract_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Attract&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_collisions_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Collisions&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_density_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Density&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_linelinked_linelinked_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked/<wbr>Line<wbr>Linked&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_linelinked_linelinkedshadow_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked/<wbr>Line<wbr>Linked<wbr>Shadow&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_move_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Move&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_opacity_opacity_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Opacity/<wbr>Opacity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_opacity_opacityanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Opacity/<wbr>Opacity<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_opacity_opacityrandom_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Opacity/<wbr>Opacity<wbr>Random&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_optionscolor_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Options<wbr>Color&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_particles_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Particles&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_particlesnumber_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Particles<wbr>Number&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_rotate_rotate_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Rotate/<wbr>Rotate&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_rotate_rotateanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Rotate/<wbr>Rotate<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_shadow_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shadow&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_shape_charactershape_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shape/<wbr>Character<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_shape_imageshape_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shape/<wbr>Image<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_shape_polygonshape_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shape/<wbr>Polygon<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_shape_shape_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shape/<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_shape_shapebase_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Shape/<wbr>Shape<wbr>Base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_size_size_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size/<wbr>Size&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_size_sizeanimation_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size/<wbr>Size<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_size_sizerandom_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Size/<wbr>Size<wbr>Random&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_stroke_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Stroke&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_trail_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Trail&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_twinkle_twinkle_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Twinkle/<wbr>Twinkle&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_particles_twinkle_twinklevalues_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Particles/<wbr>Twinkle/<wbr>Twinkle<wbr>Values&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_polygonmask_draw_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Polygon<wbr>Mask/<wbr>Draw&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_polygonmask_move_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Polygon<wbr>Mask/<wbr>Move&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_polygonmask_polygoninline_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Polygon<wbr>Mask/<wbr>Polygon<wbr>Inline&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_polygonmask_polygonmask_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Polygon<wbr>Mask/<wbr>Polygon<wbr>Mask&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_options_polygonmask_polygonmaskdrawstroke_.html">&quot;<wbr>Classes/<wbr>Options/<wbr>Polygon<wbr>Mask/<wbr>Polygon<wbr>Mask<wbr>Draw<wbr>Stroke&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_particle_.html">&quot;<wbr>Classes/<wbr>Particle&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_particle_mover_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Mover&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_particle_updater_.html">&quot;<wbr>Classes/<wbr>Particle/<wbr>Updater&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_particles_.html">&quot;<wbr>Classes/<wbr>Particles&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_polygonmask_.html">&quot;<wbr>Classes/<wbr>Polygon<wbr>Mask&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_retina_.html">&quot;<wbr>Classes/<wbr>Retina&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_shapedrawers_circledrawer_.html">&quot;<wbr>Classes/<wbr>Shape<wbr>Drawers/<wbr>Circle<wbr>Drawer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_shapedrawers_imagedrawer_.html">&quot;<wbr>Classes/<wbr>Shape<wbr>Drawers/<wbr>Image<wbr>Drawer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_shapedrawers_linedrawer_.html">&quot;<wbr>Classes/<wbr>Shape<wbr>Drawers/<wbr>Line<wbr>Drawer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_shapedrawers_polygondrawer_.html">&quot;<wbr>Classes/<wbr>Shape<wbr>Drawers/<wbr>Polygon<wbr>Drawer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_shapedrawers_polygondrawerbase_.html">&quot;<wbr>Classes/<wbr>Shape<wbr>Drawers/<wbr>Polygon<wbr>Drawer<wbr>Base&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_shapedrawers_squaredrawer_.html">&quot;<wbr>Classes/<wbr>Shape<wbr>Drawers/<wbr>Square<wbr>Drawer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_shapedrawers_stardrawer_.html">&quot;<wbr>Classes/<wbr>Shape<wbr>Drawers/<wbr>Star<wbr>Drawer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_shapedrawers_textdrawer_.html">&quot;<wbr>Classes/<wbr>Shape<wbr>Drawers/<wbr>Text<wbr>Drawer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_shapedrawers_triangledrawer_.html">&quot;<wbr>Classes/<wbr>Shape<wbr>Drawers/<wbr>Triangle<wbr>Drawer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_utils_canvasutils_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Canvas<wbr>Utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_utils_colorutils_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Color<wbr>Utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_utils_constants_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Constants&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_utils_eventlisteners_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Event<wbr>Listeners&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_utils_presets_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Presets&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_utils_spatialgrid_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Spatial<wbr>Grid&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_classes_utils_utils_.html">&quot;<wbr>Classes/<wbr>Utils/<wbr>Utils&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_collisionmode_.html">&quot;<wbr>Enums/<wbr>Collision<wbr>Mode&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_interactivitydetect_.html">&quot;<wbr>Enums/<wbr>Interactivity<wbr>Detect&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_modes_clickmode_.html">&quot;<wbr>Enums/<wbr>Modes/<wbr>Click<wbr>Mode&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_modes_divmode_.html">&quot;<wbr>Enums/<wbr>Modes/<wbr>Div<wbr>Mode&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_modes_hovermode_.html">&quot;<wbr>Enums/<wbr>Modes/<wbr>Hover<wbr>Mode&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_movedirection_.html">&quot;<wbr>Enums/<wbr>Move<wbr>Direction&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_opacityanimationstatus_.html">&quot;<wbr>Enums/<wbr>Opacity<wbr>Animation<wbr>Status&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_outmode_.html">&quot;<wbr>Enums/<wbr>Out<wbr>Mode&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_polygonmaskinlinearrangement_.html">&quot;<wbr>Enums/<wbr>Polygon<wbr>Mask<wbr>Inline<wbr>Arrangement&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_polygonmaskmovetype_.html">&quot;<wbr>Enums/<wbr>Polygon<wbr>Mask<wbr>Move<wbr>Type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_polygonmasktype_.html">&quot;<wbr>Enums/<wbr>Polygon<wbr>Mask<wbr>Type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_processbubbletype_.html">&quot;<wbr>Enums/<wbr>Process<wbr>Bubble<wbr>Type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_rotatedirection_.html">&quot;<wbr>Enums/<wbr>Rotate<wbr>Direction&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_shapetype_.html">&quot;<wbr>Enums/<wbr>Shape<wbr>Type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_enums_sizeanimationstatus_.html">&quot;<wbr>Enums/<wbr>Size<wbr>Animation<wbr>Status&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ibounds_.html">&quot;<wbr>Interfaces/IBounds&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ibubble_.html">&quot;<wbr>Interfaces/IBubble&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ibubbleparticledata_.html">&quot;<wbr>Interfaces/IBubble<wbr>Particle<wbr>Data&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ibubblerprocessparam_.html">&quot;<wbr>Interfaces/IBubbler<wbr>Process<wbr>Param&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ibubblerprocessparamobj_.html">&quot;<wbr>Interfaces/IBubbler<wbr>Process<wbr>Param<wbr>Obj&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_icolor_.html">&quot;<wbr>Interfaces/IColor&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_icontainerinteractivity_.html">&quot;<wbr>Interfaces/IContainer<wbr>Interactivity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_icoordinates_.html">&quot;<wbr>Interfaces/ICoordinates&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_idimension_.html">&quot;<wbr>Interfaces/IDimension&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ihsl_.html">&quot;<wbr>Interfaces/IHsl&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ihsla_.html">&quot;<wbr>Interfaces/IHsla&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_iimage_.html">&quot;<wbr>Interfaces/IImage&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_imousedata_.html">&quot;<wbr>Interfaces/IMouse<wbr>Data&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_iopacity_.html">&quot;<wbr>Interfaces/IOpacity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_iparticle_.html">&quot;<wbr>Interfaces/IParticle&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_iparticleimage_.html">&quot;<wbr>Interfaces/IParticle<wbr>Image&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_irepulse_.html">&quot;<wbr>Interfaces/IRepulse&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_irgb_.html">&quot;<wbr>Interfaces/IRgb&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_irgba_.html">&quot;<wbr>Interfaces/IRgba&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ishapedrawer_.html">&quot;<wbr>Interfaces/IShape<wbr>Drawer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_iside_.html">&quot;<wbr>Interfaces/ISide&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_isidecount_.html">&quot;<wbr>Interfaces/ISide<wbr>Count&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_isize_.html">&quot;<wbr>Interfaces/ISize&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_isvgpath_.html">&quot;<wbr>Interfaces/ISvg<wbr>Path&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ivaluecolor_.html">&quot;<wbr>Interfaces/IValue<wbr>Color&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_ivelocity_.html">&quot;<wbr>Interfaces/IVelocity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_absorbers_iabsorber_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Absorbers/IAbsorber&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_absorbers_iabsorberrandomsize_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Absorbers/IAbsorber<wbr>Random<wbr>Size&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_absorbers_iabsorbersize_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Absorbers/IAbsorber<wbr>Size&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_background_ibackground_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Background/IBackground&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_backgroundmask_ibackgroundmask_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Background<wbr>Mask/IBackground<wbr>Mask&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_backgroundmask_ibackgroundmaskcover_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Background<wbr>Mask/IBackground<wbr>Mask<wbr>Cover&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_emitters_iemitter_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Emitters/IEmitter&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_emitters_iemitterlife_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Emitters/IEmitter<wbr>Life&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_emitters_iemitterrate_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Emitters/IEmitter<wbr>Rate&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_ioptionloader_.html">&quot;<wbr>Interfaces/<wbr>Options/IOption<wbr>Loader&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_ioptions_.html">&quot;<wbr>Interfaces/<wbr>Options/IOptions&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_events_iclickevent_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Events/IClick<wbr>Event&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_events_idivevent_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Events/IDiv<wbr>Event&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_events_ievents_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Events/IEvents&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_events_ihoverevent_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Events/IHover<wbr>Event&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_events_iparallax_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Events/IParallax&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_iinteractivity_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/IInteractivity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_ibubble_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/IBubble&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_iconnect_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/IConnect&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_iconnectlinelinked_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/IConnect<wbr>Line<wbr>Linked&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_igrab_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/IGrab&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_igrablinelinked_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/IGrab<wbr>Line<wbr>Linked&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_imodes_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/IModes&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_ipush_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/IPush&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_iremove_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/IRemove&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_irepulse_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/IRepulse&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_interactivity_modes_islow_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Interactivity/<wbr>Modes/ISlow&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_iattract_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IAttract&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_icollisions_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/ICollisions&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_idensity_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IDensity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_imove_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IMove&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_ioptionscolor_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IOptions<wbr>Color&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_iparticles_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IParticles&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_iparticlesnumber_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IParticles<wbr>Number&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_ishadow_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IShadow&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_istroke_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/IStroke&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_itrail_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/ITrail&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_linelinked_ilinelinked_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked/ILine<wbr>Linked&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_linelinked_ilinelinkedshadow_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Line<wbr>Linked/ILine<wbr>Linked<wbr>Shadow&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_opacity_iopacity_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Opacity/IOpacity&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_opacity_iopacityanimation_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Opacity/IOpacity<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_opacity_iopacityrandom_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Opacity/IOpacity<wbr>Random&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_rotate_irotate_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Rotate/IRotate&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_rotate_irotateanimation_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Rotate/IRotate<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_shape_icharactershape_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Shape/ICharacter<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_shape_iimageshape_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Shape/IImage<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_shape_ipolygonshape_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Shape/IPolygon<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_shape_ishape_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Shape/IShape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_shape_ishapevalues_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Shape/IShape<wbr>Values&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_size_isize_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Size/ISize&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_size_isizeanimation_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Size/ISize<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_size_isizerandom_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Size/ISize<wbr>Random&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_twinkle_itwinkle_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Twinkle/ITwinkle&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_particles_twinkle_itwinklevalues_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Particles/<wbr>Twinkle/ITwinkle<wbr>Values&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_polygonmask_ipolygoninline_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Polygon<wbr>Mask/IPolygon<wbr>Inline&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_polygonmask_ipolygonmask_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Polygon<wbr>Mask/IPolygon<wbr>Mask&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_polygonmask_ipolygonmaskdraw_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Polygon<wbr>Mask/IPolygon<wbr>Mask<wbr>Draw&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_polygonmask_ipolygonmaskdrawstroke_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Polygon<wbr>Mask/IPolygon<wbr>Mask<wbr>Draw<wbr>Stroke&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_interfaces_options_polygonmask_ipolygonmaskmove_.html">&quot;<wbr>Interfaces/<wbr>Options/<wbr>Polygon<wbr>Mask/IPolygon<wbr>Mask<wbr>Move&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_types_recursivepartial_.html">&quot;<wbr>Types/<wbr>Recursive<wbr>Partial&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_types_shapedata_.html">&quot;<wbr>Types/<wbr>Shape<wbr>Data&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_types_shapedrawerfunction_.html">&quot;<wbr>Types/<wbr>Shape<wbr>Drawer<wbr>Function&quot;</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/_types_singleormultiple_.html">&quot;<wbr>Types/<wbr>Single<wbr>OrMultiple&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/tsparticles.min.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script type="text/javascript">
+    tsParticles.load('tsparticles', {
+        "fpsLimit": 60,
+        "particles": {
+            "number": {
+                "value": 0,
+                "density": {
+                    "enable": false,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#000"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                },
+                "image": {
+                    "src": "https://cdn.matteobruni.it/images/particles/github.svg",
+                    "width": 100,
+                    "height": 100
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 5,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#000",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 2,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": false,
+                    "mode": "repulse",
+                    "parallax": {
+                        "enable": false,
+                        "force": 60,
+                        "smooth": 10
+                    }
+                },
+                "onclick": {
+                    "enable": false,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 400,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 0.8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true,
+        "emitters": [
+            {
+                "direction": "top",
+                "position": {
+                    "x": 50,
+                    "y": 100
+                },
+                "rate": {
+                    "delay": 0.05
+                },
+                "size": {
+                    "width": 150,
+                    "height": 0
+                },
+                "particles": {
+                    "color": {
+                        "value": [
+                            "#5bc0eb",
+                            "#fde74c",
+                            "#9bc53d",
+                            "#e55934",
+                            "#fa7921"
+                        ]
+                    },
+                    "lineLinked": {
+                        "enable": false
+                    },
+                    "size": {
+                        "value": 400,
+                        "random": {
+                            "enable": true,
+                            "minimumValue": 200
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5
+                    },
+                    "move": {
+                        "speed": 10,
+                        "random": false,
+                        "outMode": "destroy"
+                    }
+                }
+            }
+        ]
+    });
+</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-159372955-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
