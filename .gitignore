@@ -356,5 +356,10 @@ MigrationBackup/
 dist/
 lib/
 build/
+demo/public/report.html
+demo/public/report.htm
 
 .idea/
+.nyc_output/
+coverage/
+.codacy-coverage/
