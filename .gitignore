@@ -358,6 +358,8 @@ lib/
 build/
 demo/public/report.html
 demo/public/report.htm
+demo/public/report.*.html
+demo/public/report.*.htm
 
 .idea/
 .nyc_output/
