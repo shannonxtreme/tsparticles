@@ -87,13 +87,16 @@
 						<section class="tsd-index-section tsd-is-external">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#colortohsl" class="tsd-kind-icon">color<wbr>ToHsl</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#colortorgb" class="tsd-kind-icon">color<wbr>ToRgb</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#getrandomrgbcolor" class="tsd-kind-icon">get<wbr>Random<wbr>Rgb<wbr>Color</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#getstylefromcolor" class="tsd-kind-icon">get<wbr>Style<wbr>From<wbr>Color</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#getstylefromhsl" class="tsd-kind-icon">get<wbr>Style<wbr>From<wbr>Hsl</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#getstylefromrgb" class="tsd-kind-icon">get<wbr>Style<wbr>From<wbr>Rgb</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#hsltorgb" class="tsd-kind-icon">hsl<wbr>ToRgb</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#hslatorgba" class="tsd-kind-icon">hsla<wbr>ToRgba</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#hue2rgb" class="tsd-kind-icon">hue2rgb</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#mix" class="tsd-kind-icon">mix</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#rgbtohsl" class="tsd-kind-icon">rgb<wbr>ToHsl</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#stringtoalpha" class="tsd-kind-icon">string<wbr>ToAlpha</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#stringtorgb" class="tsd-kind-icon">string<wbr>ToRgb</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-static tsd-is-external"><a href="_utils_colorutils_.colorutils.html#stringtorgba" class="tsd-kind-icon">string<wbr>ToRgba</a></li>
@@ -105,16 +108,16 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
-					<a name="colortorgb" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> color<wbr>ToRgb</h3>
+					<a name="colortohsl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> color<wbr>ToHsl</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">color<wbr>ToRgb<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_icolor_.icolor.html" class="tsd-signature-type">IColor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+						<li class="tsd-signature tsd-kind-icon">color<wbr>ToHsl<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_icolor_.icolor.html" class="tsd-signature-type">IColor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L15">Utils/ColorUtils.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L58">Utils/ColorUtils.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -126,6 +129,37 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>color: <a href="../interfaces/_core_interfaces_icolor_.icolor.html" class="tsd-signature-type">IColor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the input color to convert in <a href="../interfaces/_core_interfaces_ihsl_.ihsl.html">IHsl</a> object</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="colortorgb" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> color<wbr>ToRgb</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">color<wbr>ToRgb<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_core_interfaces_icolor_.icolor.html" class="tsd-signature-type">IColor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L15">Utils/ColorUtils.ts:15</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the particles color</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> input: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_core_interfaces_icolor_.icolor.html" class="tsd-signature-type">IColor</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>the input color to convert in <a href="../interfaces/_core_interfaces_irgb_.irgb.html">IRgb</a> object</p>
 									</div>
@@ -145,7 +179,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L113">Utils/ColorUtils.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L168">Utils/ColorUtils.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -167,16 +201,53 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
-					<a name="getstylefromcolor" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Style<wbr>From<wbr>Color</h3>
+					<a name="getstylefromhsl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Style<wbr>From<wbr>Hsl</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Style<wbr>From<wbr>Color<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a>, opacity<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Style<wbr>From<wbr>Hsl<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a>, opacity<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L131">Utils/ColorUtils.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L197">Utils/ColorUtils.ts:197</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Prepares a hsla() css function from a <a href="../interfaces/_core_interfaces_ihsl_.ihsl.html">IHsl</a> object</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>color: <a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the <a href="../interfaces/_core_interfaces_ihsl_.ihsl.html">IHsl</a> color to convert</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> opacity: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the opacity to apply to color</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="getstylefromrgb" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Style<wbr>From<wbr>Rgb</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Style<wbr>From<wbr>Rgb<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a>, opacity<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L188">Utils/ColorUtils.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,7 +284,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L68">Utils/ColorUtils.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L122">Utils/ColorUtils.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -243,7 +314,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L98">Utils/ColorUtils.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L153">Utils/ColorUtils.ts:153</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -266,7 +337,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L151">Utils/ColorUtils.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L226">Utils/ColorUtils.ts:226</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -293,22 +364,22 @@
 					<a name="mix" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> mix</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">mix<span class="tsd-signature-symbol">(</span>color1<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a>, color2<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a>, size1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, size2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a></li>
+						<li class="tsd-signature tsd-kind-icon">mix<span class="tsd-signature-symbol">(</span>color1<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a>, color2<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a>, size1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, size2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L137">Utils/ColorUtils.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L201">Utils/ColorUtils.ts:201</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>color1: <a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a></h5>
+									<h5>color1: <a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a></h5>
 								</li>
 								<li>
-									<h5>color2: <a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a></h5>
+									<h5>color2: <a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a></h5>
 								</li>
 								<li>
 									<h5>size1: <span class="tsd-signature-type">number</span></h5>
@@ -322,6 +393,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+					<a name="rgbtohsl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> rgb<wbr>ToHsl</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">rgb<wbr>ToHsl<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L64">Utils/ColorUtils.ts:64</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>color: <a href="../interfaces/_core_interfaces_irgb_.irgb.html" class="tsd-signature-type">IRgb</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_core_interfaces_ihsl_.ihsl.html" class="tsd-signature-type">IHsl</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
 					<a name="stringtoalpha" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> string<wbr>ToAlpha</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
@@ -331,7 +425,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L52">Utils/ColorUtils.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L106">Utils/ColorUtils.ts:106</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -354,7 +448,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L60">Utils/ColorUtils.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L114">Utils/ColorUtils.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -385,7 +479,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Utils/ColorUtils.ts#L177">Utils/ColorUtils.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Utils/ColorUtils.ts#L252">Utils/ColorUtils.ts:252</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -419,13 +513,19 @@
 						<a href="_utils_colorutils_.colorutils.html" class="tsd-kind-icon">Color<wbr>Utils</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="_utils_colorutils_.colorutils.html#colortohsl" class="tsd-kind-icon">color<wbr>ToHsl</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
 								<a href="_utils_colorutils_.colorutils.html#colortorgb" class="tsd-kind-icon">color<wbr>ToRgb</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
 								<a href="_utils_colorutils_.colorutils.html#getrandomrgbcolor" class="tsd-kind-icon">get<wbr>Random<wbr>Rgb<wbr>Color</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
-								<a href="_utils_colorutils_.colorutils.html#getstylefromcolor" class="tsd-kind-icon">get<wbr>Style<wbr>From<wbr>Color</a>
+								<a href="_utils_colorutils_.colorutils.html#getstylefromhsl" class="tsd-kind-icon">get<wbr>Style<wbr>From<wbr>Hsl</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="_utils_colorutils_.colorutils.html#getstylefromrgb" class="tsd-kind-icon">get<wbr>Style<wbr>From<wbr>Rgb</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
 								<a href="_utils_colorutils_.colorutils.html#hsltorgb" class="tsd-kind-icon">hsl<wbr>ToRgb</a>
@@ -438,6 +538,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
 								<a href="_utils_colorutils_.colorutils.html#mix" class="tsd-kind-icon">mix</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
+								<a href="_utils_colorutils_.colorutils.html#rgbtohsl" class="tsd-kind-icon">rgb<wbr>ToHsl</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
 								<a href="_utils_colorutils_.colorutils.html#stringtoalpha" class="tsd-kind-icon">string<wbr>ToAlpha</a>
@@ -461,6 +564,9 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>

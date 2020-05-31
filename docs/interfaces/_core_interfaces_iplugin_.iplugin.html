@@ -83,9 +83,9 @@
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/_plugins_absorbers_absorbersplugin_.absorbersplugin.html" class="tsd-signature-type">AbsorbersPlugin</a></li>
-					<li><a href="../classes/_plugins_emitters_emittersplugin_.emittersplugin.html" class="tsd-signature-type">EmittersPlugin</a></li>
-					<li><a href="../classes/_plugins_polygonmask_polygonmaskplugin_.polygonmaskplugin.html" class="tsd-signature-type">PolygonMaskPlugin</a></li>
+					<li><a href="../classes/_plugins_absorbers_absorbersplugin_.absorbersplugin-1.html" class="tsd-signature-type">AbsorbersPlugin</a></li>
+					<li><a href="../classes/_plugins_emitters_emittersplugin_.emittersplugin-1.html" class="tsd-signature-type">EmittersPlugin</a></li>
+					<li><a href="../classes/_plugins_polygonmask_polygonmaskplugin_.polygonmaskplugin-1.html" class="tsd-signature-type">PolygonMaskPlugin</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -102,6 +102,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-external"><a href="_core_interfaces_iplugin_.iplugin.html#getplugin" class="tsd-kind-icon">get<wbr>Plugin</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-external"><a href="_core_interfaces_iplugin_.iplugin.html#loadoptions" class="tsd-kind-icon">load<wbr>Options</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-external"><a href="_core_interfaces_iplugin_.iplugin.html#needsplugin" class="tsd-kind-icon">needs<wbr>Plugin</a></li>
 							</ul>
 						</section>
@@ -116,7 +117,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Core/Interfaces/IPlugin.ts#L5">Core/Interfaces/IPlugin.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Core/Interfaces/IPlugin.ts#L8">Core/Interfaces/IPlugin.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -133,7 +134,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Core/Interfaces/IPlugin.ts#L9">Core/Interfaces/IPlugin.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Core/Interfaces/IPlugin.ts#L12">Core/Interfaces/IPlugin.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -147,22 +148,48 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-external">
-					<a name="needsplugin" class="tsd-anchor"></a>
-					<h3>needs<wbr>Plugin</h3>
+					<a name="loadoptions" class="tsd-anchor"></a>
+					<h3>load<wbr>Options</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">needs<wbr>Plugin<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">load<wbr>Options<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../classes/_options_classes_options_.options.html" class="tsd-signature-type">Options</a>, source<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/014a1272/src/Core/Interfaces/IPlugin.ts#L7">Core/Interfaces/IPlugin.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Core/Interfaces/IPlugin.ts#L14">Core/Interfaces/IPlugin.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>container: <a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a></h5>
+									<h5>options: <a href="../classes/_options_classes_options_.options.html" class="tsd-signature-type">Options</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> source: <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+					<a name="needsplugin" class="tsd-anchor"></a>
+					<h3>needs<wbr>Plugin</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">needs<wbr>Plugin<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/793d6e71/src/Core/Interfaces/IPlugin.ts#L10">Core/Interfaces/IPlugin.ts:10</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -196,6 +223,9 @@
 								<a href="_core_interfaces_iplugin_.iplugin.html#getplugin" class="tsd-kind-icon">get<wbr>Plugin</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+								<a href="_core_interfaces_iplugin_.iplugin.html#loadoptions" class="tsd-kind-icon">load<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-external">
 								<a href="_core_interfaces_iplugin_.iplugin.html#needsplugin" class="tsd-kind-icon">needs<wbr>Plugin</a>
 							</li>
 						</ul>
@@ -211,6 +241,9 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>
