@@ -1,16 +1,17 @@
-![banner](https://cdn.matteobruni.it/images/particles/banner.png)
+![banner](https://cdn.matteobruni.it/images/particles/banner2.png)
 
 # tsParticles - TypeScript Particles  
   
 **A lightweight TypeScript library for creating particles. Dependency free (\*) and browser ready!**  
   
-_[Particles.js](https://github.com/VincentGarreau/particles.js) converted in TypeScript, dependency free (\*), improved with new cool 😎 features and various bugs fixed and **it's currently under development**!_  
+_[Particles.js](https://github.com/VincentGarreau/particles.js) converted in TypeScript, dependency free (\*), improved with new cool 😎 features and various bugs fixed and **it's actively maintained**!_  
   
 [![jsDelivr](https://data.jsdelivr.com/v1/package/npm/tsparticles/badge?style=rounded)](https://www.jsdelivr.com/package/npm/tsparticles) [![Cdnjs](https://img.shields.io/cdnjs/v/tsparticles)](https://cdnjs.com/libraries/tsparticles) [![npmjs](https://badge.fury.io/js/tsparticles.svg)](https://www.npmjs.com/package/tsparticles) ![npm](https://img.shields.io/npm/dm/tsparticles)  
   
 | `master` | `staging` | `dev` |  
 | --- | --- | --- |  
 | [![Master Build Status](https://dev.azure.com/hollowmatt/particles.ts/_apis/build/status/matteobruni.tsparticles?branchName=master)](https://dev.azure.com/hollowmatt/particles.ts/_build/latest?definitionId=11&branchName=master) | [![Staging Build Status](https://dev.azure.com/hollowmatt/particles.ts/_apis/build/status/matteobruni.tsparticles?branchName=staging)](https://dev.azure.com/hollowmatt/particles.ts/_build/latest?definitionId=11&branchName=staging) | [![Dev Build Status](https://dev.azure.com/hollowmatt/particles.ts/_apis/build/status/matteobruni.tsparticles?branchName=dev)](https://dev.azure.com/hollowmatt/particles.ts/_build/latest?definitionId=11&branchName=dev) | 
+
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/) [![CodeFactor](https://www.codefactor.io/repository/github/matteobruni/tsparticles/badge)](https://www.codefactor.io/repository/github/matteobruni/tsparticles) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b983aaf3461a4c48b1e2eecce1ff1d74)](https://www.codacy.com/manual/ar3s/tsparticles?utm_source=github.com&utm_medium=referral&utm_content=matteobruni/tsparticles&utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/b983aaf3461a4c48b1e2eecce1ff1d74)](https://www.codacy.com/manual/ar3s/tsparticles?utm_source=github.com&utm_medium=referral&utm_content=matteobruni/tsparticles&utm_campaign=Badge_Coverage) [![Sauce Test Status](https://saucelabs.com/buildstatus/matteobruni)](https://app.saucelabs.com/u/matteobruni)  
   
 [![Slack](https://cdn.matteobruni.it/images/slack.png)](https://join.slack.com/t/tsparticles/shared_invite/enQtOTcxNTQxNjQ4NzkxLWE2MTZhZWExMWRmOWI5MTMxNjczOGE1Yjk0MjViYjdkYTUzODM3OTc5MGQ5MjFlODc4MzE0N2Q1OWQxZDc1YzI) [![tsParticles Product Hunt](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=186113&theme=light)](https://www.producthunt.com/posts/tsparticles?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-tsparticles")  
@@ -45,9 +46,9 @@ or from jsDelivr
   
 ```html  
 <!-- first include tsParticles -->  
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@1.16.0/dist/tsparticles.min.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@1.16.1/dist/tsparticles.min.js"></script>  
 <!-- then include jquery wrapper -->  
-<script src="https://cdn.jsdelivr.net/npm/jquery-particles@1.16.0/dist/jquery.particles.min.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/jquery-particles@1.16.1/dist/jquery.particles.min.js"></script>  
 ```  
   
 ##### How to use  
@@ -142,7 +143,8 @@ $("#tsparticles")
 // or  
   
 $("#tsparticles")  
- .particles() .ajax("particles.json", function (container) { // container is the particles container where you can play/pause or stop/start. // the container is already started, you don't need to start it manually. });```  
+ .particles() .ajax("particles.json", function (container) { // container is the particles container where you can play/pause or stop/start. // the container is already started, you don't need to start it manually. });
+```  
   
 #### VueJS  
   
@@ -166,13 +168,34 @@ export default {
   
 ```html  
 <template>  
- <div id="app"> <Particles id="tsparticles" lineLinked="true"/> </div> </template>```  
+ <div id="app"> <Particles id="tsparticles" lineLinked="true"/> </div>
+</template>
+```  
   
 ###### Full Config  
   
 ```html  
 <template>  
- <div id="app"> <particles id="tsparticles" color="#dedede" :particleOpacity="0.7" :particlesNumber="80" shapeType="circle" :particleSize="5" linesColor="#dedede" :linesWidth="1" :lineLinked="true" :lineOpacity="0.4" :linesDistance="150" :moveSpeed="6" :hoverEffect="true" hoverMode="bubble" :clickEffect="true" clickMode="push" > </particles> </div> </template>```  
+ <div id="app">
+   <particles id="tsparticles"
+              color="#dedede"
+              particleOpacity="0.7"
+              particlesNumber="80"
+              shapeType="circle"
+              particleSize="5"
+              linesColor="#dedede"
+              linesWidth="1"
+              lineLinked="true"
+              lineOpacity="0.4"
+              linesDistance="150"
+              moveSpeed="6"
+              hoverEffect="true"
+              hoverMode="bubble"
+              clickEffect="true"
+              clickMode="push"></particles>
+  </div>
+</template>
+```
   
 #### ReactJS  
   
@@ -197,7 +220,8 @@ import Particles from 'react-tsparticles';
   
 class App extends Component{  
      render(){  
- return ( <Particles id="tsparticles" params={{
+ return (
+ <Particles id="tsparticles" params={{
   background: {
     color: {
       value: "#0d47a1"
@@ -275,9 +299,10 @@ class App extends Component{
     }
   },
   detectRetina: true
-}} /> ); };  
-}  
-  
+}} />
+     );
+  } 
+}
 ```  
   
 ###### Props  
@@ -325,7 +350,8 @@ import Particles from 'preact-particles';
   
 class App extends Component{  
      render(){  
- return ( <Particles id="tsparticles" params={{
+ return (
+ <Particles id="tsparticles" params={{
   background: {
     color: {
       value: "#0d47a1"
@@ -403,7 +429,9 @@ class App extends Component{
     }
   },
   detectRetina: true
-}} /> ); };  
+}} />
+    );
+  };  
 }  
   
 ```  
@@ -731,15 +759,7 @@ const tsParticles = require("tsparticles");
   
 import { tsParticles } from "tsparticles";  
 ```  
-  
-### React.js  
-  
-**tsParticles ❤️ react-particles-js**  
-  
-Starting from [react-particles-js](https://github.com/Wufe/react-particles-js) version 3.0.0 it has added tsParticles as a dependency.  
-  
-You can follow the instructions [here](https://github.com/Wufe/react-particles-js/blob/master/README.md) to install `react-particles-js` and use all the configurations described in this readme to configure the particles.  
-  
+
 ---  
   
 ### **_Demo / Generator_**  
