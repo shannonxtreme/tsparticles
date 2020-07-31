@@ -354,14 +354,13 @@ MigrationBackup/
 
 .DS_Store
 dist/
-lib/
 build/
 demo/main/report.html
 demo/main/report.htm
 demo/main/report.*.html
 demo/main/report.*.htm
-wrappers/preact-particles/report.html
-wrappers/react-tsparticles/report.html
+components/preact/report.html
+components/react/report.html
 
 .idea/
 .nyc_output/
@@ -369,9 +368,9 @@ coverage/
 .codacy-coverage/
 
 package-lock.json
-wrappers/preact-particles/cjs/
-wrappers/preact-particles/umd/
-wrappers/react-tsparticles/cjs/
-wrappers/react-tsparticles/umd/
+components/preact/cjs/
+components/preact/umd/
+components/react/cjs/
+components/react/umd/
 
 size-plugin.json
