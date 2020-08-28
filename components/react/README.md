@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <Particles
         id="tsparticles"
-        options={ {
+        options={{
           background: {
             color: {
               value: "#0d47a1",
@@ -128,7 +128,7 @@ class App extends Component {
             },
           },
           detectRetina: true,
-        } }
+        }}
       />
     );
   }
